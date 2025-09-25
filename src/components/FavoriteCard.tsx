@@ -7,7 +7,6 @@ interface FavoriteCardProps {
   rating: number;
   title: string;
   type: string;
-  onBookmarkClick?: () => void;
 }
 
 const FavoriteCard: React.FC<FavoriteCardProps> = ({

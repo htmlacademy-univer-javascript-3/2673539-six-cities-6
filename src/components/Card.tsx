@@ -8,7 +8,6 @@ interface CardProps {
   rating: number;
   title: string;
   type: string;
-  onBookmarkClick?: () => void;
 }
 
 const Card: React.FC<CardProps> = ({
@@ -20,7 +19,6 @@ const Card: React.FC<CardProps> = ({
   title,
   type,
 }) => {
-
   const ratingWidth = `${rating}%`;
 
   return (
