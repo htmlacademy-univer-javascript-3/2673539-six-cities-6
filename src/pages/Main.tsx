@@ -10,7 +10,7 @@ const Main: React.FC = () => {
 
   return (
     <div className="page page--gray page--main">
-      <Header userEmail='Oliver.conner@gmail.com' favoriteCount={3} isLoggedIn={true}></Header>
+      <Header userEmail='Oliver.conner@gmail.com' favoriteCount={3} isLoggedIn></Header>
 
       <main className="page__main page__main--index">
         <CitiesTabs />
@@ -37,11 +37,11 @@ const Main: React.FC = () => {
                     </ul>
                   </form>
                   <div className="cities__places-list places__list tabs__content">
-                    <Card isPremium={true} imageUrl='img/apartment-01.jpg' price={120} rating={80} type='Apartment' title='Beautiful &amp; luxurious apartment at great location' />
-                    <Card isFavorite={true} imageUrl='img/room.jpg' price={80} rating={80} type='Room' title='Wood and stone place' />
+                    <Card isPremium imageUrl='img/apartment-01.jpg' price={120} rating={80} type='Apartment' title='Beautiful &amp; luxurious apartment at great location' />
+                    <Card isFavorite imageUrl='img/room.jpg' price={80} rating={80} type='Room' title='Wood and stone place' />
                     <Card imageUrl='img/apartment-02.jpg' price={132} rating={80} type='Apartment' title='Canal View Prinsengracht' />
-                    <Card isPremium={true} imageUrl='img/apartment-03.jpg' price={180} rating={100} type='Apartment' title='Nice, cozy, warm big bed apartment' />
-                    <Card isFavorite={true} imageUrl='img/room.jpg' price={80} rating={80} type='Room' title='Wood and stone place' />
+                    <Card isPremium imageUrl='img/apartment-03.jpg' price={180} rating={100} type='Apartment' title='Nice, cozy, warm big bed apartment' />
+                    <Card isFavorite imageUrl='img/room.jpg' price={80} rating={80} type='Room' title='Wood and stone place' />
                   </div>
                 </section>
                 <div className="cities__right-section">
