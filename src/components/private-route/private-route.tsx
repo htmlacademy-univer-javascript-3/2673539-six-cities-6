@@ -1,13 +1,9 @@
-import {Navigate} from 'react-router-dom';
-import {AppRoute} from '../../const';
+import { Navigate } from 'react-router-dom';
+import { AppRoute } from '../../const';
+import { AuthorizationStatus } from '../../const';
 
-export enum AuthorizationStatus {
-  Auth = 'AUTH',
-  NoAuth = 'NO_AUTH',
-  Unknown = 'UNKNOWN',
-}
 
-type PrivateRouteProps = {
+interface PrivateRouteProps {
   authorizationStatus: AuthorizationStatus;
   children: JSX.Element;
 }

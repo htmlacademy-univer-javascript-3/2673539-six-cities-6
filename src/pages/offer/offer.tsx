@@ -9,9 +9,9 @@ const IsLogged = true;
 
 const Offer: React.FC = () => {
   const { id } = useParams<{ id: string }>();
-  console.log(id) // пока пусть будет так
   return (
     <div className="page">
+      <div>{id}</div> {/* пока так */}
       <Header userEmail='Oliver.conner@gmail.com' favoriteCount={3} isLoggedIn></Header>
       <main className="page__main page__main--offer">
         <section className="offer">
