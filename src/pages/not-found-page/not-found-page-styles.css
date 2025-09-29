@@ -1,0 +1,22 @@
+.not-found-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+}
+
+.button-link {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: rgb(68, 129, 195);
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+.button-link:hover {
+  background-color: rgb(68, 129, 195);
+}
