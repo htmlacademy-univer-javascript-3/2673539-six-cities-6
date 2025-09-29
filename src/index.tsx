@@ -1,5 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import Main from './pages/main/main';
+import Login from './pages/login/login';
+import Favorites from './pages/favorites/favorites';
+import Offer from './pages/offer/offer';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -7,6 +11,9 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <h1>Hello, World!</h1>
+    <Main />
+    <Login />
+    <Favorites />
+    <Offer />
   </React.StrictMode>
 );
