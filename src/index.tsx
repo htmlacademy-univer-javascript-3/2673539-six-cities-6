@@ -1,10 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import Main from './pages/Main';
-import Login from './pages/Login';
-import Favorites from './pages/Favorites';
-import Offer from './pages/Offer';
-import Property from './pages/Property';
+import Main from './pages/main/main';
+import Login from './pages/login/login';
+import Favorites from './pages/favorites/favorites';
+import Offer from './pages/offer/offer';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -16,6 +15,5 @@ root.render(
     <Login />
     <Favorites />
     <Offer />
-    <Property />
   </React.StrictMode>
 );

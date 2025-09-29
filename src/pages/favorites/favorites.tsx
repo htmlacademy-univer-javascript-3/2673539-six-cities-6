@@ -1,8 +1,8 @@
 import React from 'react';
-import Header from '../components/Header';
-import FavoriteCard from '../components/FavoriteCard';
-import Footer from '../components/Footer';
-import EmptyFavorites from '../components/EmptyFavorites';
+import Header from '../../components/header';
+import FavoriteCard from '../../components/favorite-card';
+import Footer from '../../components/footer';
+import EmptyFavorites from '../../components/empty-favorites';
 
 const favoritesIsEmpty = false;
 

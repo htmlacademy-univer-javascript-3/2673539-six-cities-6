@@ -1,7 +1,7 @@
 import React from 'react';
-import Header from '../components/Header';
-import Card from '../components/Card';
-import YourReview from '../components/YourReview';
+import Header from '../../components/header';
+import Card from '../../components/card';
+import YourReview from '../../components/your-review-form';
 
 
 const IsLogged = true;

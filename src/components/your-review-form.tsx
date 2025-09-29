@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-const YourReview: React.FC = () => (
+const YourReviewForm: React.FC = () => (
   <form className="reviews__form form" action="#" method="post">
     <label className="reviews__label form__label" htmlFor="review">Your review</label>
     <div className="reviews__rating-form form__rating">
@@ -50,4 +50,4 @@ const YourReview: React.FC = () => (
   </form>
 );
 
-export default YourReview;
+export default YourReviewForm;
