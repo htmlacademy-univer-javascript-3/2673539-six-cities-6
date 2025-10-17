@@ -1,7 +1,7 @@
 import React from 'react';
-import Header from '../../components/header';
-import Card from '../../components/card';
-import YourReview from '../../components/your-review-form';
+import Header from '../../components/header/header';
+import Card from '../../components/card/card';
+import YourReview from '../../components/your-review-form/your-review-form';
 import { useParams } from 'react-router-dom';
 
 
