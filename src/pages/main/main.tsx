@@ -1,8 +1,8 @@
 import React from 'react';
-import Card from '../../components/card';
-import Header from '../../components/header';
-import CitiesTabs from '../../components/cities-tabs';
-import EmptyMain from '../../components/empty-main';
+import Card from '../../components/card/card';
+import Header from '../../components/header/header';
+import CitiesTabs from '../../components/cities-tabs/cities-tabs';
+import EmptyMain from '../../components/empty-main/empty-main';
 
 
 const Main: React.FC = () => {
