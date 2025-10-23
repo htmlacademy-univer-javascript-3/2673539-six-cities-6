@@ -9,7 +9,7 @@ interface OffersListProps {
 }
 
 const OffersList: React.FC<OffersListProps> = ({ offers, currentCity }) => {
-  const [activeOfferId, setActiveOfferId] = useState<string | null>(null);
+  const [_, setActiveOfferId] = useState<string | null>(null);
 
   const handleCardMouseEnter = (offerId: string) => {
     setActiveOfferId(offerId);

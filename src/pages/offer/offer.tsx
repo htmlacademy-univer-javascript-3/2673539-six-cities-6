@@ -9,6 +9,7 @@ const IsLogged = true;
 
 const Offer: React.FC = () => {
   const { id } = useParams<{ id: string }>();
+  console.log(id)
   return (
     <div className="page">
       

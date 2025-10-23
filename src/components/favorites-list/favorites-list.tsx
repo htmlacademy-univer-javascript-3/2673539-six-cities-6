@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { OfferType } from '../../types/offer';
 import { SixCities } from '../../const';
 import Card from '../card/card';
@@ -9,11 +9,11 @@ interface FavoritesListProps {
 
 const FavoritesList: React.FC<FavoritesListProps> = ({ offers }) => {
   const groupedOffers = offers.filter(offer => offer.isFavorite).reduce((acc: { [key in SixCities]?: OfferType[] }, offer) => {
-    const city = offer.city.name as SixCities; // Указываем тип city
+    const city = offer.city.name as SixCities;
     if (!acc[city]) {
       acc[city] = [];
     }
-    acc[city]?.push(offer); // Используем optional chaining
+    acc[city]?.push(offer);
     return acc;
   }, {});
 
