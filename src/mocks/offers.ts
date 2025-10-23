@@ -1,6 +1,6 @@
-import {Offer} from '../types/offer.ts';
+import {OfferType} from '../types/offer.ts';
 
-export const offers: Offer[] = [
+export const offers: OfferType[] = [
   {
     "id": "101cf67d-35bb-4d51-bec2-00658e49e710",
     "title": "Amazing and Extremely Central Flat",
@@ -480,7 +480,7 @@ export const offers: Offer[] = [
       "longitude": 6.961974,
       "zoom": 16
     },
-    "isFavorite": false,
+    "isFavorite": true,
     "isPremium": false,
     "rating": 4.8
   },
@@ -1400,7 +1400,7 @@ export const offers: Offer[] = [
       "longitude": 4.911976,
       "zoom": 16
     },
-    "isFavorite": false,
+    "isFavorite": true,
     "isPremium": true,
     "rating": 2.4
   },
@@ -1423,7 +1423,7 @@ export const offers: Offer[] = [
       "longitude": 4.902976,
       "zoom": 16
     },
-    "isFavorite": false,
+    "isFavorite": true,
     "isPremium": false,
     "rating": 2.6
   },

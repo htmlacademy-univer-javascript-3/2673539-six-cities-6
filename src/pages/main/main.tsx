@@ -1,26 +1,33 @@
 import React from 'react';
-import Card from '../../components/card/card';
 import Header from '../../components/header/header';
 import CitiesTabs from '../../components/cities-tabs/cities-tabs';
 import EmptyMain from '../../components/empty-main/empty-main';
+import { OfferType } from '../../types/offer';
+import { SixCities } from '../../const';
+import OffersList from '../../components/offers-list/offers-list';
 
+export interface MainProps{
+  offers: OfferType[]
+}
 
-const Main: React.FC = () => {
-  const MainIsEmpty = false;
+const currentCity = SixCities.Amsterdam
+
+const Main: React.FC<MainProps> = ({ offers }) => {
+  const MainIsEmpty = offers.length === 0;
 
   return (
     <div className="page page--gray page--main">
       <Header userEmail='Oliver.conner@gmail.com' favoriteCount={3} isLoggedIn></Header>
 
       <main className="page__main page__main--index">
-        <CitiesTabs />
+        <CitiesTabs CurrentCity={currentCity}/>
         {MainIsEmpty ? <EmptyMain /> :
           (
             <div className="cities">
               <div className="cities__places-container container">
                 <section className="cities__places places">
                   <h2 className="visually-hidden">Places</h2>
-                  <b className="places__found">312 places to stay in Amsterdam</b>
+                  <b className="places__found">{offers.length} places to stay in {currentCity}</b>
                   <form className="places__sorting" action="#" method="get">
                     <span className="places__sorting-caption">Sort by</span>
                     <span className="places__sorting-type" tabIndex={0}>
@@ -36,13 +43,7 @@ const Main: React.FC = () => {
                       <li className="places__option" tabIndex={0}>Top rated first</li>
                     </ul>
                   </form>
-                  <div className="cities__places-list places__list tabs__content">
-                    <Card isPremium imageUrl='img/apartment-01.jpg' price={120} rating={80} type='Apartment' title='Beautiful &amp; luxurious apartment at great location' />
-                    <Card isFavorite imageUrl='img/room.jpg' price={80} rating={80} type='Room' title='Wood and stone place' />
-                    <Card imageUrl='img/apartment-02.jpg' price={132} rating={80} type='Apartment' title='Canal View Prinsengracht' />
-                    <Card isPremium imageUrl='img/apartment-03.jpg' price={180} rating={100} type='Apartment' title='Nice, cozy, warm big bed apartment' />
-                    <Card isFavorite imageUrl='img/room.jpg' price={80} rating={80} type='Room' title='Wood and stone place' />
-                  </div>
+                  <OffersList offers={offers} currentCity={currentCity} />
                 </section>
                 <div className="cities__right-section">
                   <section className="cities__map map"></section>

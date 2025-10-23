@@ -10,15 +10,19 @@ import Offer from './pages/offer/offer';
 import NotFoundPage from './pages/not-found-page/not-found-page';
 import PrivateRoute from './components/private-route/private-route';
 import { AuthorizationStatus } from './const';
+import { OfferType } from './types/offer';
 
+interface AppProps {
+  offers: OfferType[]
+}
 
-const App: React.FC = () => (
+const App: React.FC<AppProps> = ({ offers }) => (
   <HelmetProvider>
     <BrowserRouter>
       <Routes>
         <Route
           path={AppRoute.Root}
-          element={<Main />}
+          element={<Main offers={offers} />}
         />
         <Route
           path={AppRoute.Login}
@@ -27,8 +31,8 @@ const App: React.FC = () => (
         <Route
           path={AppRoute.Favorites}
           element={
-            <PrivateRoute authorizationStatus={AuthorizationStatus.NoAuth}>
-              <Favorites />
+            <PrivateRoute authorizationStatus={AuthorizationStatus.Auth}>
+              <Favorites offers={offers} />
             </PrivateRoute>
           }
         />

@@ -1,0 +1,52 @@
+import React, { useState } from 'react';
+import { OfferType } from '../../types/offer';
+import { SixCities } from '../../const';
+import Card from '../card/card';
+
+interface FavoritesListProps {
+  offers: OfferType[],
+}
+
+const FavoritesList: React.FC<FavoritesListProps> = ({ offers }) => {
+  const groupedOffers = offers.filter(offer => offer.isFavorite).reduce((acc: { [key in SixCities]?: OfferType[] }, offer) => {
+    const city = offer.city.name as SixCities; // Указываем тип city
+    if (!acc[city]) {
+      acc[city] = [];
+    }
+    acc[city]?.push(offer); // Используем optional chaining
+    return acc;
+  }, {});
+
+
+  return (
+    <ul className="favorites__list">
+      {Object.entries(groupedOffers).map(([city, cityOffers]) => (
+        <li className="favorites__locations-items" key={city}>
+          <div className="favorites__locations locations locations--current">
+            <div className="locations__item">
+              <a className="locations__item-link" href="#">
+                <span>{city}</span>
+              </a>
+            </div>
+          </div>
+          <div className="favorites__places">
+            {cityOffers.map((offer) => (
+              <Card
+                id={offer.id}
+                isPremium={offer.isPremium}
+                imageUrl={offer.previewImage}
+                price={offer.price}
+                rating={offer.rating}
+                type={offer.type}
+                title={offer.title}
+                fromFavoritePage={true}
+              />
+            ))}
+          </div>
+        </li>
+      ))}
+    </ul>
+  )
+}
+
+export default FavoritesList

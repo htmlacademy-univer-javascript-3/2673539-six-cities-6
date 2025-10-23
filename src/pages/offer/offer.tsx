@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from '../../components/header/header';
 import Card from '../../components/card/card';
-import YourReview from '../../components/your-review-form/your-review-form';
+import YourReviewForm from '../../components/your-review-form/your-review-form';
 import { useParams } from 'react-router-dom';
 
 
@@ -11,7 +11,7 @@ const Offer: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   return (
     <div className="page">
-      <div>{id}</div> {/* пока так */}
+      
       <Header userEmail='Oliver.conner@gmail.com' favoriteCount={3} isLoggedIn></Header>
       <main className="page__main page__main--offer">
         <section className="offer">
@@ -160,7 +160,7 @@ const Offer: React.FC = () => {
                 </ul>
                 {IsLogged &&
                   (
-                    <YourReview />
+                    <YourReviewForm />
                   )}
               </section>
             </div>
@@ -171,9 +171,9 @@ const Offer: React.FC = () => {
           <section className="near-places places">
             <h2 className="near-places__title">Other places in the neighbourhood</h2>
             <div className="near-places__list places__list">
-              <Card isFavorite imageUrl='img/room.jpg' price={80} rating={80} type='Private Room' title='Wood and stone place' />
-              <Card imageUrl='img/apartment-02.jpg' price={132} rating={80} type='Apartment' title='Canal View Prinsengracht' />
-              <Card isPremium imageUrl='img/apartment-03.jpg' price={180} rating={100} type='Apartment' title='Nice, cozy, warm big bed apartment' />
+              <Card id='' isFavorite imageUrl='img/room.jpg' price={80} rating={80} type='Private Room' title='Wood and stone place' />
+              <Card  id=''imageUrl='img/apartment-02.jpg' price={132} rating={80} type='Apartment' title='Canal View Prinsengracht' />
+              <Card  id=''isPremium imageUrl='img/apartment-03.jpg' price={180} rating={100} type='Apartment' title='Nice, cozy, warm big bed apartment' />
             </div>
           </section>
         </div>
