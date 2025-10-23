@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { AppRoute } from '../../const';
 
 interface CardProps {
@@ -7,7 +7,7 @@ interface CardProps {
   isPremium?: boolean;
   imageUrl: string;
   price: number;
-  fromFavoritePage?: boolean;
+  isFromFavoritePage?: boolean;
   isFavorite?: boolean;
   rating: number;
   title: string;
@@ -22,15 +22,14 @@ const Card: React.FC<CardProps> = ({
   isPremium = false,
   imageUrl,
   price,
-  fromFavoritePage = false,
+  isFromFavoritePage: fromFavoritePage = false,
   isFavorite = false,
   rating,
   title,
   type,
   onMouseEnter,
   onMouseLeave
-}) => { 
-
+}) => {
   const wrapperClass = fromFavoritePage
     ? 'favorites__card place-card'
     : 'cities__card place-card';
@@ -78,9 +77,7 @@ const Card: React.FC<CardProps> = ({
             <span className="place-card__price-text">&#47;&nbsp;night</span>
           </div>
           <button
-            className={`place-card__bookmark-button button ${
-              isFavorite ? 'place-card__bookmark-button--active' : ''
-            }`}
+            className={`place-card__bookmark-button button ${isFavorite ? 'place-card__bookmark-button--active' : ''}`}
             type="button"
           >
             <svg className="place-card__bookmark-icon" width="18" height="19">

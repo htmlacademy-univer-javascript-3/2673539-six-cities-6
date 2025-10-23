@@ -4,11 +4,11 @@ import { SixCities } from '../../const';
 import Card from '../card/card';
 
 interface FavoritesListProps {
-  offers: OfferType[],
+  offers: OfferType[];
 }
 
 const FavoritesList: React.FC<FavoritesListProps> = ({ offers }) => {
-  const groupedOffers = offers.filter(offer => offer.isFavorite).reduce((acc: { [key in SixCities]?: OfferType[] }, offer) => {
+  const groupedOffers = offers.filter((offer) => offer.isFavorite).reduce((acc: { [key in SixCities]?: OfferType[] }, offer) => {
     const city = offer.city.name as SixCities;
     if (!acc[city]) {
       acc[city] = [];
@@ -32,6 +32,7 @@ const FavoritesList: React.FC<FavoritesListProps> = ({ offers }) => {
           <div className="favorites__places">
             {cityOffers.map((offer) => (
               <Card
+                key={offer.id}
                 id={offer.id}
                 isPremium={offer.isPremium}
                 imageUrl={offer.previewImage}
@@ -39,14 +40,14 @@ const FavoritesList: React.FC<FavoritesListProps> = ({ offers }) => {
                 rating={offer.rating}
                 type={offer.type}
                 title={offer.title}
-                fromFavoritePage={true}
+                isFromFavoritePage
               />
-            ))}
+            ))};
           </div>
         </li>
-      ))}
+      ))};
     </ul>
-  )
-}
+  );
+};
 
-export default FavoritesList
+export default FavoritesList;

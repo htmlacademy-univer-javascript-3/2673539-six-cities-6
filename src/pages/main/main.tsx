@@ -7,10 +7,10 @@ import { SixCities } from '../../const';
 import OffersList from '../../components/offers-list/offers-list';
 
 export interface MainProps{
-  offers: OfferType[]
+  offers: OfferType[];
 }
 
-const currentCity = SixCities.Amsterdam
+const currentCity = SixCities.Amsterdam;
 
 const Main: React.FC<MainProps> = ({ offers }) => {
   const MainIsEmpty = offers.length === 0;

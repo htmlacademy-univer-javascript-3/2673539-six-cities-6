@@ -5,6 +5,12 @@ const YourReviewForm: React.FC = () => {
   const [reviewText, setReviewText] = useState('');
   const [isSubmitDisabled, setIsSubmitDisabled] = useState(true);
 
+  const updateSubmitButtonState = (currentRating: string | null, currentReviewText: string) => {
+    const isRatingSelected = currentRating !== null;
+    const isTextLongEnough = currentReviewText.length >= 50;
+    setIsSubmitDisabled(!(isRatingSelected && isTextLongEnough));
+  };
+
   const handleRatingChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setRating(event.target.value);
     updateSubmitButtonState(event.target.value, reviewText);
@@ -16,16 +22,10 @@ const YourReviewForm: React.FC = () => {
     updateSubmitButtonState(rating, newReviewText);
   };
 
-  const updateSubmitButtonState = (currentRating: string | null, currentReviewText: string) => {
-    const isRatingSelected = currentRating !== null;
-    const isTextLongEnough = currentReviewText.length >= 50;
-    setIsSubmitDisabled(!(isRatingSelected && isTextLongEnough));
-  };
-
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
-    console.log('Rating:', rating);
-    console.log('Review Text:', reviewText);
+    // console.log('Rating:', rating);
+    // console.log('Review Text:', reviewText);
     setRating(null);
     setReviewText('');
     setIsSubmitDisabled(true);
@@ -118,7 +118,7 @@ const YourReviewForm: React.FC = () => {
         placeholder="Tell how was your stay, what you like and what can be improved"
         value={reviewText}
         onChange={handleReviewTextChange}
-      ></textarea>
+      />
       <div className="reviews__button-wrapper">
         <p className="reviews__help">
           To submit review please make sure to set <span className="reviews__star">rating</span> and describe your stay with at least <b className="reviews__text-amount">50 characters</b>.

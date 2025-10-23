@@ -2,7 +2,7 @@ import React from 'react';
 import { SixCities } from '../../const';
 
 interface CitiesTabsProps {
-  CurrentCity: SixCities
+  CurrentCity: SixCities;
 }
 
 const cityList = Object.values(SixCities);
@@ -14,7 +14,7 @@ const CitiesTabs: React.FC<CitiesTabsProps> = ({ CurrentCity }) => (
       <section className="locations container">
         <ul className="locations__list tabs__list">
           {cityList.map((city) => (
-            <li className="locations__item">
+            <li className="locations__item" key={city}>
               <a className={`locations__item-link tabs__item${city === CurrentCity ? ' tabs__item--active' : ''}`} href="#">
                 <span>{city}</span>
               </a>

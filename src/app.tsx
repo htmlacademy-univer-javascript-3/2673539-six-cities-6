@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Route, BrowserRouter, Routes } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
@@ -13,7 +12,7 @@ import { AuthorizationStatus } from './const';
 import { OfferType } from './types/offer';
 
 interface AppProps {
-  offers: OfferType[]
+  offers: OfferType[];
 }
 
 const App: React.FC<AppProps> = ({ offers }) => (
