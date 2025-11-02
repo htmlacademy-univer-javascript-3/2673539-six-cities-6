@@ -5,14 +5,16 @@ import EmptyMain from '../../components/empty-main/empty-main';
 import { OfferType } from '../../types/offer';
 import { SixCities } from '../../const';
 import OffersList from '../../components/offers-list/offers-list';
+import Map from '../../components/map/map';
 
-export interface MainProps{
+export interface MainProps {
   offers: OfferType[];
 }
 
 const currentCity = SixCities.Amsterdam;
 
 const Main: React.FC<MainProps> = ({ offers }) => {
+  offers = offers.filter((offer) => offer.city.name === currentCity.toString());
   const MainIsEmpty = offers.length === 0;
 
   return (
@@ -20,7 +22,7 @@ const Main: React.FC<MainProps> = ({ offers }) => {
       <Header userEmail='Oliver.conner@gmail.com' favoriteCount={3} isLoggedIn></Header>
 
       <main className="page__main page__main--index">
-        <CitiesTabs CurrentCity={currentCity}/>
+        <CitiesTabs CurrentCity={currentCity} />
         {MainIsEmpty ? <EmptyMain /> :
           (
             <div className="cities">
@@ -46,11 +48,13 @@ const Main: React.FC<MainProps> = ({ offers }) => {
                   <OffersList offers={offers} currentCity={currentCity} />
                 </section>
                 <div className="cities__right-section">
-                  <section className="cities__map map"></section>
+                  <section style={{ width: '100%' }}>
+                    <Map city={offers[3].city} offers={offers} currentOffer={offers[3]}></Map>
+                  </section>
                 </div>
               </div>
             </div>
-          )}
+          )};
       </main>
     </div>
   );
