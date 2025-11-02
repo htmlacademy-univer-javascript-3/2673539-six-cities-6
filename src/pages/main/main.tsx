@@ -14,7 +14,7 @@ export interface MainProps {
 const currentCity = SixCities.Amsterdam;
 
 const Main: React.FC<MainProps> = ({ offers }) => {
-  offers = offers.filter(offer => offer.city.name === currentCity)
+  offers = offers.filter((offer) => offer.city.name === currentCity.toString());
   const MainIsEmpty = offers.length === 0;
 
   return (
@@ -48,13 +48,13 @@ const Main: React.FC<MainProps> = ({ offers }) => {
                   <OffersList offers={offers} currentCity={currentCity} />
                 </section>
                 <div className="cities__right-section">
-                  <section style={{width: '100%'}}>
+                  <section style={{ width: '100%' }}>
                     <Map city={offers[3].city} offers={offers} currentOffer={offers[3]}></Map>
                   </section>
                 </div>
               </div>
             </div>
-          )}
+          )};
       </main>
     </div>
   );

@@ -1,4 +1,4 @@
-import { Point } from "../types/offer";
+import { Point } from '../types/offer';
 
 export const POINTS: Point[] = [
   {
