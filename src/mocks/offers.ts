@@ -1,6 +1,6 @@
-import {OfferType} from '../types/offer.ts';
+import {OfferCardType} from '../types/offer.ts';
 
-export const offers: OfferType[] = [
+export const offers: OfferCardType[] = [
   {
     'id': '101cf67d-35bb-4d51-bec2-00658e49e710',
     'title': 'Amazing and Extremely Central Flat',

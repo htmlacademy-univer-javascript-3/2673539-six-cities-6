@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { OfferType } from '../../types/offer';
+import { OfferCardType } from '../../types/offer';
 import { SixCities } from '../../const';
 import Card from '../card/card';
 
 interface OffersListProps {
-  offers: OfferType[];
+  offers: OfferCardType[];
   currentCity: SixCities;
 }
 
