@@ -2,13 +2,13 @@ import React from 'react';
 import Header from '../../components/header/header';
 import CitiesTabs from '../../components/cities-tabs/cities-tabs';
 import EmptyMain from '../../components/empty-main/empty-main';
-import { OfferType } from '../../types/offer';
+import { OfferCardType } from '../../types/offer';
 import { SixCities } from '../../const';
 import OffersList from '../../components/offers-list/offers-list';
 import Map from '../../components/map/map';
 
 export interface MainProps {
-  offers: OfferType[];
+  offers: OfferCardType[];
 }
 
 const currentCity = SixCities.Amsterdam;

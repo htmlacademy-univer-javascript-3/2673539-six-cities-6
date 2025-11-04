@@ -9,10 +9,10 @@ import Offer from './pages/offer/offer';
 import NotFoundPage from './pages/not-found-page/not-found-page';
 import PrivateRoute from './components/private-route/private-route';
 import { AuthorizationStatus } from './const';
-import { OfferType } from './types/offer';
+import { OfferCardType } from './types/offer';
 
 interface AppProps {
-  offers: OfferType[];
+  offers: OfferCardType[];
 }
 
 const App: React.FC<AppProps> = ({ offers }) => (
