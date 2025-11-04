@@ -31,6 +31,18 @@ const Map: React.FC<MapProps> = ({ city, offers, currentOffer }) => {
 
   useEffect(() => {
     if (map) {
+      map.setView(
+        {
+          lat: city.location.latitude,
+          lng: city.location.longitude
+        },
+        city.location.zoom
+      );
+    }
+  }, [map, city]);
+
+  useEffect(() => {
+    if (map) {
       const markerLayer = layerGroup().addTo(map);
       offers.forEach((offer) => {
         const marker = new Marker({
@@ -39,7 +51,7 @@ const Map: React.FC<MapProps> = ({ city, offers, currentOffer }) => {
         });
         marker
           .setIcon(
-            currentOffer !== undefined && offer.title === currentOffer.title
+            currentOffer !== undefined && offer.id === currentOffer.id
               ? currentCustomIcon
               : defaultCustomIcon
           )

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { OfferCardType } from '../../types/offer';
 import { SixCities } from '../../const';
 import Card from '../card/card';
@@ -6,17 +6,17 @@ import Card from '../card/card';
 interface OffersListProps {
   offers: OfferCardType[];
   currentCity: SixCities;
+  activeOfferId: string | null;
+  onActiveOfferChange: (offerId: string | null) => void;
 }
 
-const OffersList: React.FC<OffersListProps> = ({ offers, currentCity }) => {
-  const [activeOfferId, setActiveOfferId] = useState<string | null>(null);
-
+const OffersList: React.FC<OffersListProps> = ({ offers, currentCity, onActiveOfferChange }) => {
   const handleCardMouseEnter = (offerId: string) => {
-    setActiveOfferId(offerId);
+    onActiveOfferChange(offerId);
   };
 
   const handleCardMouseLeave = () => {
-    setActiveOfferId(null);
+    onActiveOfferChange(null);
   };
 
   return (
@@ -39,7 +39,6 @@ const OffersList: React.FC<OffersListProps> = ({ offers, currentCity }) => {
               isFavorite={offer.isFavorite}
             />
           ))}
-      <h1>{activeOfferId}</h1>
     </div>
   );
 };

@@ -42,10 +42,10 @@ const FavoritesList: React.FC<FavoritesListProps> = ({ offers }) => {
                 title={offer.title}
                 isFromFavoritePage
               />
-            ))};
+            ))}
           </div>
         </li>
-      ))};
+      ))}
     </ul>
   );
 };
