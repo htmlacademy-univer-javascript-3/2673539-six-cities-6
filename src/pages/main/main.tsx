@@ -6,13 +6,8 @@ import { OfferCardType } from '../../types/offer';
 import { SixCities } from '../../const';
 import OffersList from '../../components/offers-list/offers-list';
 import Map from '../../components/map/map';
+import { PlacesOptions } from './PlacesOptions';
 
-export enum PlacesOptions {
-  Popular = 'Popular',
-  LowToHigh = 'Price: low to high',
-  HighToLow = 'Price: high to low',
-  TopRated = 'Top rated first'
-}
 
 export interface MainProps {
   offers: OfferCardType[];
@@ -68,7 +63,6 @@ const Main: React.FC<MainProps> = ({ offers }) => {
                   {sortedOffers.length} places to stay in {currentCity}
                 </b>
 
-                {/* SORTING BLOCK */}
                 <form className="places__sorting" action="#" method="get">
                   <span className="places__sorting-caption" style={{ marginRight: '10px' }}>
                     Sort by
@@ -85,16 +79,12 @@ const Main: React.FC<MainProps> = ({ offers }) => {
                   </span>
 
                   <ul
-                    className={`places__options places__options--custom ${
-                      isSortingOpen ? 'places__options--opened' : ''
-                    }`}
+                    className={`places__options places__options--custom ${isSortingOpen ? 'places__options--opened' : ''}`}
                   >
                     {Object.values(PlacesOptions).map((option) => (
                       <li
                         key={option}
-                        className={`places__option ${
-                          option === selectedOption ? 'places__option--active' : ''
-                        }`}
+                        className={`places__option ${option === selectedOption ? 'places__option--active' : ''}`}
                         tabIndex={0}
                         onClick={() => handleOptionClick(option)}
                       >
@@ -107,7 +97,6 @@ const Main: React.FC<MainProps> = ({ offers }) => {
                 <OffersList
                   offers={sortedOffers}
                   currentCity={currentCity}
-                  activeOfferId={activeOfferId}
                   onActiveOfferChange={setActiveOfferId}
                 />
               </section>
