@@ -3,12 +3,12 @@ import Header from '../../components/header/header';
 import Footer from '../../components/footer/footer';
 import EmptyFavorites from '../../components/empty-favorites/empty-favorites';
 import FavoritesList from '../../components/favorites-list/favorites-list';
-import { OfferType } from '../../types/offer';
+import { OfferCardType } from '../../types/offer';
 
 const favoritesIsEmpty = false;
 
 interface FavoritesProps {
-  offers: OfferType[];
+  offers: OfferCardType[];
 }
 
 const Favorites: React.FC<FavoritesProps> = ({ offers }) => (

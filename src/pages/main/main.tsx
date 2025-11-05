@@ -1,60 +1,120 @@
-import React from 'react';
+import React, { useState, useMemo } from 'react';
 import Header from '../../components/header/header';
 import CitiesTabs from '../../components/cities-tabs/cities-tabs';
 import EmptyMain from '../../components/empty-main/empty-main';
-import { OfferType } from '../../types/offer';
+import { OfferCardType } from '../../types/offer';
 import { SixCities } from '../../const';
 import OffersList from '../../components/offers-list/offers-list';
 import Map from '../../components/map/map';
+import { PlacesOptions } from '../../types/places-options';
+
 
 export interface MainProps {
-  offers: OfferType[];
+  offers: OfferCardType[];
 }
 
-const currentCity = SixCities.Amsterdam;
-
 const Main: React.FC<MainProps> = ({ offers }) => {
-  offers = offers.filter((offer) => offer.city.name === currentCity.toString());
-  const MainIsEmpty = offers.length === 0;
+  const [activeOfferId, setActiveOfferId] = useState<string | null>(null);
+  const [currentCity, setCurrentCity] = useState<SixCities>(SixCities.Amsterdam);
+  const [selectedOption, setSelectedOption] = useState<PlacesOptions>(PlacesOptions.Popular);
+  const [isSortingOpen, setIsSortingOpen] = useState<boolean>(false);
+
+  const filteredOffers = useMemo(
+    () => offers.filter((offer) => offer.city.name === currentCity.toString()),
+    [offers, currentCity]
+  );
+
+  const sortedOffers = useMemo(() => {
+    const offersCopy = [...filteredOffers];
+    switch (selectedOption) {
+      case PlacesOptions.LowToHigh:
+        return offersCopy.sort((a, b) => a.price - b.price);
+      case PlacesOptions.HighToLow:
+        return offersCopy.sort((a, b) => b.price - a.price);
+      case PlacesOptions.TopRated:
+        return offersCopy.sort((a, b) => b.rating - a.rating);
+      default:
+        return offersCopy;
+    }
+  }, [filteredOffers, selectedOption]);
+
+  const mainIsEmpty = sortedOffers.length === 0;
+
+  const handleOptionClick = (option: PlacesOptions) => {
+    setSelectedOption(option);
+    setIsSortingOpen(false);
+  };
 
   return (
     <div className="page page--gray page--main">
-      <Header userEmail='Oliver.conner@gmail.com' favoriteCount={3} isLoggedIn></Header>
+      <Header userEmail="Oliver.conner@gmail.com" favoriteCount={3} isLoggedIn />
 
       <main className="page__main page__main--index">
-        <CitiesTabs CurrentCity={currentCity} />
-        {MainIsEmpty ? <EmptyMain /> :
-          (
-            <div className="cities">
-              <div className="cities__places-container container">
-                <section className="cities__places places">
-                  <h2 className="visually-hidden">Places</h2>
-                  <b className="places__found">{offers.length} places to stay in {currentCity}</b>
-                  <form className="places__sorting" action="#" method="get">
-                    <span className="places__sorting-caption">Sort by</span>
-                    <span className="places__sorting-type" tabIndex={0}>
-                      Popular
-                      <svg className="places__sorting-arrow" width="7" height="4">
-                        <use xlinkHref="#icon-arrow-select"></use>
-                      </svg>
-                    </span>
-                    <ul className="places__options places__options--custom places__options--opened">
-                      <li className="places__option places__option--active" tabIndex={0}>Popular</li>
-                      <li className="places__option" tabIndex={0}>Price: low to high</li>
-                      <li className="places__option" tabIndex={0}>Price: high to low</li>
-                      <li className="places__option" tabIndex={0}>Top rated first</li>
-                    </ul>
-                  </form>
-                  <OffersList offers={offers} currentCity={currentCity} />
+        <CitiesTabs CurrentCity={currentCity} SetCurrentCity={setCurrentCity} />
+
+        {mainIsEmpty ? (
+          <EmptyMain />
+        ) : (
+          <div className="cities">
+            <div className="cities__places-container container">
+              <section className="cities__places places">
+                <h2 className="visually-hidden">Places</h2>
+                <b className="places__found">
+                  {sortedOffers.length} places to stay in {currentCity}
+                </b>
+
+                <form className="places__sorting" action="#" method="get">
+                  <span className="places__sorting-caption" style={{ marginRight: '10px' }}>
+                    Sort by
+                  </span>
+                  <span
+                    className="places__sorting-type"
+                    tabIndex={0}
+                    onClick={() => setIsSortingOpen((prev) => !prev)}
+                  >
+                    {selectedOption}
+                    <svg className="places__sorting-arrow" width="7" height="4">
+                      <use xlinkHref="#icon-arrow-select"></use>
+                    </svg>
+                  </span>
+
+                  <ul
+                    className={`places__options places__options--custom ${isSortingOpen ? 'places__options--opened' : ''}`}
+                  >
+                    {Object.values(PlacesOptions).map((option) => (
+                      <li
+                        key={option}
+                        className={`places__option ${option === selectedOption ? 'places__option--active' : ''}`}
+                        tabIndex={0}
+                        onClick={() => handleOptionClick(option)}
+                      >
+                        {option}
+                      </li>
+                    ))}
+                  </ul>
+                </form>
+
+                <OffersList
+                  offers={sortedOffers}
+                  currentCity={currentCity}
+                  onActiveOfferChange={setActiveOfferId}
+                />
+              </section>
+
+              <div className="cities__right-section">
+                <section style={{ width: '100%' }}>
+                  <Map
+                    city={sortedOffers[0].city}
+                    offers={sortedOffers}
+                    currentOffer={
+                      sortedOffers.find((offer) => offer.id === activeOfferId) ?? undefined
+                    }
+                  />
                 </section>
-                <div className="cities__right-section">
-                  <section style={{ width: '100%' }}>
-                    <Map city={offers[3].city} offers={offers} currentOffer={offers[3]}></Map>
-                  </section>
-                </div>
               </div>
             </div>
-          )};
+          </div>
+        )}
       </main>
     </div>
   );

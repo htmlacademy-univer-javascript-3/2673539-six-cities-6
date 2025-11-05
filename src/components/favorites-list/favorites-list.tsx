@@ -1,14 +1,14 @@
 import React from 'react';
-import { OfferType } from '../../types/offer';
+import { OfferCardType } from '../../types/offer';
 import { SixCities } from '../../const';
 import Card from '../card/card';
 
 interface FavoritesListProps {
-  offers: OfferType[];
+  offers: OfferCardType[];
 }
 
 const FavoritesList: React.FC<FavoritesListProps> = ({ offers }) => {
-  const groupedOffers = offers.filter((offer) => offer.isFavorite).reduce((acc: { [key in SixCities]?: OfferType[] }, offer) => {
+  const groupedOffers = offers.filter((offer) => offer.isFavorite).reduce((acc: { [key in SixCities]?: OfferCardType[] }, offer) => {
     const city = offer.city.name as SixCities;
     if (!acc[city]) {
       acc[city] = [];
@@ -42,10 +42,10 @@ const FavoritesList: React.FC<FavoritesListProps> = ({ offers }) => {
                 title={offer.title}
                 isFromFavoritePage
               />
-            ))};
+            ))}
           </div>
         </li>
-      ))};
+      ))}
     </ul>
   );
 };
