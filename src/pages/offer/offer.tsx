@@ -110,7 +110,7 @@ const Offer: React.FC = () => {
           </div>
 
           <section className="offer__map map">
-            <Map city={nearOffersMock[3].city} offers={nearOffersMock} currentOffer={nearOffersMock[3]}></Map>
+            <Map city={nearOffersMock[0].city} offers={nearOffersMock} currentOffer={undefined}></Map>
           </section>
         </section>
 

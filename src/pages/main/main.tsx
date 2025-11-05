@@ -6,7 +6,7 @@ import { OfferCardType } from '../../types/offer';
 import { SixCities } from '../../const';
 import OffersList from '../../components/offers-list/offers-list';
 import Map from '../../components/map/map';
-import { PlacesOptions } from './PlacesOptions';
+import { PlacesOptions } from '../../types/places-options';
 
 
 export interface MainProps {
