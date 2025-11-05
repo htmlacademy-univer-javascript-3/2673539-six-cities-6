@@ -6,7 +6,6 @@ import Card from '../card/card';
 interface OffersListProps {
   offers: OfferCardType[];
   currentCity: SixCities;
-  activeOfferId: string | null;
   onActiveOfferChange: (offerId: string | null) => void;
 }
 

@@ -19,21 +19,18 @@ const Offer: React.FC = () => {
       <main className="page__main page__main--offer">
         <section className="offer">
 
-          {/* Галерея */}
           <div className="offer__gallery-container container">
             <div className="offer__gallery">
-              {offer.images.map((image, index) => (
-                <div key={index} className="offer__image-wrapper">
+              {offer.images.map((image) => (
+                <div key={image} className="offer__image-wrapper">
                   <img className="offer__image" src={image} alt={offer.title} />
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Основная часть */}
           <div className="offer__container container">
             <div className="offer__wrapper">
-              
               {offer.isPremium && (
                 <div className="offer__mark">
                   <span>Premium</span>
@@ -50,7 +47,6 @@ const Offer: React.FC = () => {
                 </button>
               </div>
 
-              {/* Рейтинг */}
               <div className="offer__rating rating">
                 <div className="offer__stars rating__stars">
                   <span style={{ width: `${(offer.rating / 5) * 100}%` }}></span>
@@ -59,7 +55,6 @@ const Offer: React.FC = () => {
                 <span className="offer__rating-value rating__value">{offer.rating.toFixed(1)}</span>
               </div>
 
-              {/* Характеристики */}
               <ul className="offer__features">
                 <li className="offer__feature offer__feature--entire">
                   {offer.type}
@@ -72,23 +67,20 @@ const Offer: React.FC = () => {
                 </li>
               </ul>
 
-              {/* Цена */}
               <div className="offer__price">
                 <b className="offer__price-value">&euro;{offer.price}</b>
                 <span className="offer__price-text">&nbsp;night</span>
               </div>
 
-              {/* Удобства */}
               <div className="offer__inside">
                 <h2 className="offer__inside-title">What&apos;s inside</h2>
                 <ul className="offer__inside-list">
-                  {offer.goods.map((item, index) => (
-                    <li key={index} className="offer__inside-item">{item}</li>
+                  {offer.goods.map((item) => (
+                    <li key={item} className="offer__inside-item">{item}</li>
                   ))}
                 </ul>
               </div>
 
-              {/* Хост */}
               <div className="offer__host">
                 <h2 className="offer__host-title">Meet the host</h2>
                 <div className="offer__host-user user">
@@ -110,7 +102,6 @@ const Offer: React.FC = () => {
                 </div>
               </div>
 
-              {/* Отзывы */}
               <section className="offer__reviews reviews">
                 <ReviewsList />
                 {IsLogged && <YourReviewForm />}
@@ -119,12 +110,10 @@ const Offer: React.FC = () => {
           </div>
 
           <section className="offer__map map">
-            {/* потом поменять на реальные данные */}
             <Map city={nearOffersMock[3].city} offers={nearOffersMock} currentOffer={nearOffersMock[3]}></Map>
           </section>
         </section>
 
-        {/* Блок "Other places" */}
         <div className="container">
           <NearOffersList offers={nearOffersMock}></NearOffersList>
         </div>

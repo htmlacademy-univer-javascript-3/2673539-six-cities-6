@@ -31,21 +31,16 @@ export type CityType = {
   location: LocationType;
 };
 
-
 export type Point = {
   title: string;
   latitude: number;
   longitude: number;
 };
 
-
-//
-
-
 export type HostType = {
-  isPro: boolean; // Является ли хост "Pro" аккаунтом
+  isPro: boolean;
   name: string;
-  avatarUrl: string; // URL аватара хоста
+  avatarUrl: string;
 };
 
 export type HousingType = 'apartment' | 'room' | 'house' | 'hotel';
