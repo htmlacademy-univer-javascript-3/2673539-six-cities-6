@@ -11,41 +11,49 @@ import PrivateRoute from './components/private-route/private-route';
 import { AuthorizationStatus } from './const';
 import { OfferCardType } from './types/offer';
 
+import { useDispatch } from 'react-redux';
+import { loadOffers } from './store/actions/action';
+
 interface AppProps {
-  offers: OfferCardType[];
+  testOffers: OfferCardType[];
 }
 
-const App: React.FC<AppProps> = ({ offers }) => (
-  <HelmetProvider>
-    <BrowserRouter>
-      <Routes>
-        <Route
-          path={AppRoute.Root}
-          element={<Main offers={offers} />}
-        />
-        <Route
-          path={AppRoute.Login}
-          element={<Login />}
-        />
-        <Route
-          path={AppRoute.Favorites}
-          element={
-            <PrivateRoute authorizationStatus={AuthorizationStatus.Auth}>
-              <Favorites offers={offers} />
-            </PrivateRoute>
-          }
-        />
-        <Route
-          path={`${AppRoute.Offer}/:id`}
-          element={<Offer />}
-        />
-        <Route
-          path="*"
-          element={<NotFoundPage />}
-        />
-      </Routes>
-    </BrowserRouter>
-  </HelmetProvider>
-);
+const App: React.FC<AppProps> = ({ testOffers }) => {
+  const dispatch = useDispatch();
+  dispatch(loadOffers(testOffers));
+
+  return (
+    <HelmetProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route
+            path={AppRoute.Root}
+            element={<Main />}
+          />
+          <Route
+            path={AppRoute.Login}
+            element={<Login />}
+          />
+          <Route
+            path={AppRoute.Favorites}
+            element={
+              <PrivateRoute authorizationStatus={AuthorizationStatus.Auth}>
+                <Favorites offers={testOffers} />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path={`${AppRoute.Offer}/:id`}
+            element={<Offer />}
+          />
+          <Route
+            path="*"
+            element={<NotFoundPage />}
+          />
+        </Routes>
+      </BrowserRouter>
+    </HelmetProvider>
+  );
+};
 
 export default App;

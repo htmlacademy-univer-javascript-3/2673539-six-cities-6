@@ -1,4 +1,5 @@
 import {OfferCardType} from '../types/offer.ts';
+import { CitiesEnum } from '../const.ts';
 
 export const offers: OfferCardType[] = [
   {
@@ -8,7 +9,7 @@ export const offers: OfferCardType[] = [
     'price': 260,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/5.jpg',
     'city': {
-      'name': 'Paris',
+      'name': 'Paris' as CitiesEnum,
       'location': {
         'latitude': 48.85661,
         'longitude': 2.351499,
@@ -31,7 +32,7 @@ export const offers: OfferCardType[] = [
     'price': 170,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/16.jpg',
     'city': {
-      'name': 'Paris',
+      'name': 'Paris' as CitiesEnum,
       'location': {
         'latitude': 48.85661,
         'longitude': 2.351499,
@@ -54,7 +55,7 @@ export const offers: OfferCardType[] = [
     'price': 251,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/10.jpg',
     'city': {
-      'name': 'Paris',
+      'name': 'Paris' as CitiesEnum,
       'location': {
         'latitude': 48.85661,
         'longitude': 2.351499,
@@ -77,7 +78,7 @@ export const offers: OfferCardType[] = [
     'price': 461,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/2.jpg',
     'city': {
-      'name': 'Paris',
+      'name': 'Paris' as CitiesEnum,
       'location': {
         'latitude': 48.85661,
         'longitude': 2.351499,
@@ -100,7 +101,7 @@ export const offers: OfferCardType[] = [
     'price': 436,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/16.jpg',
     'city': {
-      'name': 'Paris',
+      'name': 'Paris' as CitiesEnum,
       'location': {
         'latitude': 48.85661,
         'longitude': 2.351499,
@@ -123,7 +124,7 @@ export const offers: OfferCardType[] = [
     'price': 555,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/11.jpg',
     'city': {
-      'name': 'Paris',
+      'name': 'Paris' as CitiesEnum,
       'location': {
         'latitude': 48.85661,
         'longitude': 2.351499,
@@ -146,7 +147,7 @@ export const offers: OfferCardType[] = [
     'price': 145,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/6.jpg',
     'city': {
-      'name': 'Paris',
+      'name': 'Paris' as CitiesEnum,
       'location': {
         'latitude': 48.85661,
         'longitude': 2.351499,
@@ -169,7 +170,7 @@ export const offers: OfferCardType[] = [
     'price': 140,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/12.jpg',
     'city': {
-      'name': 'Paris',
+      'name': 'Paris' as CitiesEnum,
       'location': {
         'latitude': 48.85661,
         'longitude': 2.351499,
@@ -192,7 +193,7 @@ export const offers: OfferCardType[] = [
     'price': 862,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/7.jpg',
     'city': {
-      'name': 'Paris',
+      'name': 'Paris' as CitiesEnum,
       'location': {
         'latitude': 48.85661,
         'longitude': 2.351499,
@@ -215,7 +216,7 @@ export const offers: OfferCardType[] = [
     'price': 357,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/18.jpg',
     'city': {
-      'name': 'Paris',
+      'name': 'Paris' as CitiesEnum,
       'location': {
         'latitude': 48.85661,
         'longitude': 2.351499,
@@ -238,7 +239,7 @@ export const offers: OfferCardType[] = [
     'price': 567,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/3.jpg',
     'city': {
-      'name': 'Paris',
+      'name': 'Paris' as CitiesEnum,
       'location': {
         'latitude': 48.85661,
         'longitude': 2.351499,
@@ -261,7 +262,7 @@ export const offers: OfferCardType[] = [
     'price': 396,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/9.jpg',
     'city': {
-      'name': 'Paris',
+      'name': 'Paris' as CitiesEnum,
       'location': {
         'latitude': 48.85661,
         'longitude': 2.351499,
@@ -284,7 +285,7 @@ export const offers: OfferCardType[] = [
     'price': 165,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/4.jpg',
     'city': {
-      'name': 'Paris',
+      'name': 'Paris' as CitiesEnum,
       'location': {
         'latitude': 48.85661,
         'longitude': 2.351499,
@@ -307,7 +308,7 @@ export const offers: OfferCardType[] = [
     'price': 247,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/4.jpg',
     'city': {
-      'name': 'Paris',
+      'name': 'Paris' as CitiesEnum,
       'location': {
         'latitude': 48.85661,
         'longitude': 2.351499,
@@ -330,7 +331,7 @@ export const offers: OfferCardType[] = [
     'price': 226,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/18.jpg',
     'city': {
-      'name': 'Paris',
+      'name': 'Paris' as CitiesEnum,
       'location': {
         'latitude': 48.85661,
         'longitude': 2.351499,
@@ -353,7 +354,7 @@ export const offers: OfferCardType[] = [
     'price': 726,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/18.jpg',
     'city': {
-      'name': 'Paris',
+      'name': 'Paris' as CitiesEnum,
       'location': {
         'latitude': 48.85661,
         'longitude': 2.351499,
@@ -376,7 +377,7 @@ export const offers: OfferCardType[] = [
     'price': 733,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/3.jpg',
     'city': {
-      'name': 'Paris',
+      'name': 'Paris' as CitiesEnum,
       'location': {
         'latitude': 48.85661,
         'longitude': 2.351499,
@@ -399,7 +400,7 @@ export const offers: OfferCardType[] = [
     'price': 292,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/4.jpg',
     'city': {
-      'name': 'Paris',
+      'name': 'Paris' as CitiesEnum,
       'location': {
         'latitude': 48.85661,
         'longitude': 2.351499,
@@ -422,7 +423,7 @@ export const offers: OfferCardType[] = [
     'price': 264,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/19.jpg',
     'city': {
-      'name': 'Paris',
+      'name': 'Paris' as CitiesEnum,
       'location': {
         'latitude': 48.85661,
         'longitude': 2.351499,
@@ -445,7 +446,7 @@ export const offers: OfferCardType[] = [
     'price': 112,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/2.jpg',
     'city': {
-      'name': 'Paris',
+      'name': 'Paris' as CitiesEnum,
       'location': {
         'latitude': 48.85661,
         'longitude': 2.351499,
@@ -468,7 +469,7 @@ export const offers: OfferCardType[] = [
     'price': 235,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/12.jpg',
     'city': {
-      'name': 'Cologne',
+      'name': 'Cologne' as CitiesEnum,
       'location': {
         'latitude': 50.938361,
         'longitude': 6.959974,
@@ -491,7 +492,7 @@ export const offers: OfferCardType[] = [
     'price': 263,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/4.jpg',
     'city': {
-      'name': 'Cologne',
+      'name': 'Cologne' as CitiesEnum,
       'location': {
         'latitude': 50.938361,
         'longitude': 6.959974,
@@ -514,7 +515,7 @@ export const offers: OfferCardType[] = [
     'price': 775,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/18.jpg',
     'city': {
-      'name': 'Cologne',
+      'name': 'Cologne' as CitiesEnum,
       'location': {
         'latitude': 50.938361,
         'longitude': 6.959974,
@@ -537,7 +538,7 @@ export const offers: OfferCardType[] = [
     'price': 121,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/15.jpg',
     'city': {
-      'name': 'Cologne',
+      'name': 'Cologne' as CitiesEnum,
       'location': {
         'latitude': 50.938361,
         'longitude': 6.959974,
@@ -560,7 +561,7 @@ export const offers: OfferCardType[] = [
     'price': 294,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/14.jpg',
     'city': {
-      'name': 'Cologne',
+      'name': 'Cologne' as CitiesEnum,
       'location': {
         'latitude': 50.938361,
         'longitude': 6.959974,
@@ -583,7 +584,7 @@ export const offers: OfferCardType[] = [
     'price': 240,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/1.jpg',
     'city': {
-      'name': 'Cologne',
+      'name': 'Cologne' as CitiesEnum,
       'location': {
         'latitude': 50.938361,
         'longitude': 6.959974,
@@ -606,7 +607,7 @@ export const offers: OfferCardType[] = [
     'price': 464,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/18.jpg',
     'city': {
-      'name': 'Cologne',
+      'name': 'Cologne' as CitiesEnum,
       'location': {
         'latitude': 50.938361,
         'longitude': 6.959974,
@@ -629,7 +630,7 @@ export const offers: OfferCardType[] = [
     'price': 133,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/10.jpg',
     'city': {
-      'name': 'Cologne',
+      'name': 'Cologne' as CitiesEnum,
       'location': {
         'latitude': 50.938361,
         'longitude': 6.959974,
@@ -652,7 +653,7 @@ export const offers: OfferCardType[] = [
     'price': 215,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/6.jpg',
     'city': {
-      'name': 'Cologne',
+      'name': 'Cologne' as CitiesEnum,
       'location': {
         'latitude': 50.938361,
         'longitude': 6.959974,
@@ -675,7 +676,7 @@ export const offers: OfferCardType[] = [
     'price': 395,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/15.jpg',
     'city': {
-      'name': 'Cologne',
+      'name': 'Cologne' as CitiesEnum,
       'location': {
         'latitude': 50.938361,
         'longitude': 6.959974,
@@ -698,7 +699,7 @@ export const offers: OfferCardType[] = [
     'price': 430,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/15.jpg',
     'city': {
-      'name': 'Cologne',
+      'name': 'Cologne' as CitiesEnum,
       'location': {
         'latitude': 50.938361,
         'longitude': 6.959974,
@@ -721,7 +722,7 @@ export const offers: OfferCardType[] = [
     'price': 187,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/19.jpg',
     'city': {
-      'name': 'Cologne',
+      'name': 'Cologne' as CitiesEnum,
       'location': {
         'latitude': 50.938361,
         'longitude': 6.959974,
@@ -744,7 +745,7 @@ export const offers: OfferCardType[] = [
     'price': 391,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/20.jpg',
     'city': {
-      'name': 'Cologne',
+      'name': 'Cologne' as CitiesEnum,
       'location': {
         'latitude': 50.938361,
         'longitude': 6.959974,
@@ -767,7 +768,7 @@ export const offers: OfferCardType[] = [
     'price': 229,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/9.jpg',
     'city': {
-      'name': 'Cologne',
+      'name': 'Cologne' as CitiesEnum,
       'location': {
         'latitude': 50.938361,
         'longitude': 6.959974,
@@ -790,7 +791,7 @@ export const offers: OfferCardType[] = [
     'price': 277,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/9.jpg',
     'city': {
-      'name': 'Cologne',
+      'name': 'Cologne' as CitiesEnum,
       'location': {
         'latitude': 50.938361,
         'longitude': 6.959974,
@@ -813,7 +814,7 @@ export const offers: OfferCardType[] = [
     'price': 266,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/5.jpg',
     'city': {
-      'name': 'Cologne',
+      'name': 'Cologne' as CitiesEnum,
       'location': {
         'latitude': 50.938361,
         'longitude': 6.959974,
@@ -836,7 +837,7 @@ export const offers: OfferCardType[] = [
     'price': 129,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/17.jpg',
     'city': {
-      'name': 'Cologne',
+      'name': 'Cologne' as CitiesEnum,
       'location': {
         'latitude': 50.938361,
         'longitude': 6.959974,
@@ -859,7 +860,7 @@ export const offers: OfferCardType[] = [
     'price': 291,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/13.jpg',
     'city': {
-      'name': 'Cologne',
+      'name': 'Cologne' as CitiesEnum,
       'location': {
         'latitude': 50.938361,
         'longitude': 6.959974,
@@ -882,7 +883,7 @@ export const offers: OfferCardType[] = [
     'price': 262,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/20.jpg',
     'city': {
-      'name': 'Cologne',
+      'name': 'Cologne' as CitiesEnum,
       'location': {
         'latitude': 50.938361,
         'longitude': 6.959974,
@@ -905,7 +906,7 @@ export const offers: OfferCardType[] = [
     'price': 102,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/3.jpg',
     'city': {
-      'name': 'Cologne',
+      'name': 'Cologne' as CitiesEnum,
       'location': {
         'latitude': 50.938361,
         'longitude': 6.959974,
@@ -928,7 +929,7 @@ export const offers: OfferCardType[] = [
     'price': 222,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/17.jpg',
     'city': {
-      'name': 'Brussels',
+      'name': 'Brussels' as CitiesEnum,
       'location': {
         'latitude': 50.846557,
         'longitude': 4.351697,
@@ -951,7 +952,7 @@ export const offers: OfferCardType[] = [
     'price': 386,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/6.jpg',
     'city': {
-      'name': 'Brussels',
+      'name': 'Brussels' as CitiesEnum,
       'location': {
         'latitude': 50.846557,
         'longitude': 4.351697,
@@ -974,7 +975,7 @@ export const offers: OfferCardType[] = [
     'price': 263,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/3.jpg',
     'city': {
-      'name': 'Brussels',
+      'name': 'Brussels' as CitiesEnum,
       'location': {
         'latitude': 50.846557,
         'longitude': 4.351697,
@@ -997,7 +998,7 @@ export const offers: OfferCardType[] = [
     'price': 168,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/11.jpg',
     'city': {
-      'name': 'Brussels',
+      'name': 'Brussels' as CitiesEnum,
       'location': {
         'latitude': 50.846557,
         'longitude': 4.351697,
@@ -1020,7 +1021,7 @@ export const offers: OfferCardType[] = [
     'price': 324,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/11.jpg',
     'city': {
-      'name': 'Brussels',
+      'name': 'Brussels' as CitiesEnum,
       'location': {
         'latitude': 50.846557,
         'longitude': 4.351697,
@@ -1043,7 +1044,7 @@ export const offers: OfferCardType[] = [
     'price': 764,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/15.jpg',
     'city': {
-      'name': 'Brussels',
+      'name': 'Brussels' as CitiesEnum,
       'location': {
         'latitude': 50.846557,
         'longitude': 4.351697,
@@ -1066,7 +1067,7 @@ export const offers: OfferCardType[] = [
     'price': 406,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/2.jpg',
     'city': {
-      'name': 'Brussels',
+      'name': 'Brussels' as CitiesEnum,
       'location': {
         'latitude': 50.846557,
         'longitude': 4.351697,
@@ -1089,7 +1090,7 @@ export const offers: OfferCardType[] = [
     'price': 227,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/7.jpg',
     'city': {
-      'name': 'Brussels',
+      'name': 'Brussels' as CitiesEnum,
       'location': {
         'latitude': 50.846557,
         'longitude': 4.351697,
@@ -1112,7 +1113,7 @@ export const offers: OfferCardType[] = [
     'price': 434,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/9.jpg',
     'city': {
-      'name': 'Brussels',
+      'name': 'Brussels' as CitiesEnum,
       'location': {
         'latitude': 50.846557,
         'longitude': 4.351697,
@@ -1135,7 +1136,7 @@ export const offers: OfferCardType[] = [
     'price': 303,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/19.jpg',
     'city': {
-      'name': 'Brussels',
+      'name': 'Brussels' as CitiesEnum,
       'location': {
         'latitude': 50.846557,
         'longitude': 4.351697,
@@ -1158,7 +1159,7 @@ export const offers: OfferCardType[] = [
     'price': 290,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/16.jpg',
     'city': {
-      'name': 'Brussels',
+      'name': 'Brussels' as CitiesEnum,
       'location': {
         'latitude': 50.846557,
         'longitude': 4.351697,
@@ -1181,7 +1182,7 @@ export const offers: OfferCardType[] = [
     'price': 261,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/10.jpg',
     'city': {
-      'name': 'Brussels',
+      'name': 'Brussels' as CitiesEnum,
       'location': {
         'latitude': 50.846557,
         'longitude': 4.351697,
@@ -1204,7 +1205,7 @@ export const offers: OfferCardType[] = [
     'price': 409,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/11.jpg',
     'city': {
-      'name': 'Brussels',
+      'name': 'Brussels' as CitiesEnum,
       'location': {
         'latitude': 50.846557,
         'longitude': 4.351697,
@@ -1227,7 +1228,7 @@ export const offers: OfferCardType[] = [
     'price': 829,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/2.jpg',
     'city': {
-      'name': 'Brussels',
+      'name': 'Brussels' as CitiesEnum,
       'location': {
         'latitude': 50.846557,
         'longitude': 4.351697,
@@ -1250,7 +1251,7 @@ export const offers: OfferCardType[] = [
     'price': 500,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/17.jpg',
     'city': {
-      'name': 'Brussels',
+      'name': 'Brussels' as CitiesEnum,
       'location': {
         'latitude': 50.846557,
         'longitude': 4.351697,
@@ -1273,7 +1274,7 @@ export const offers: OfferCardType[] = [
     'price': 400,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/4.jpg',
     'city': {
-      'name': 'Brussels',
+      'name': 'Brussels' as CitiesEnum,
       'location': {
         'latitude': 50.846557,
         'longitude': 4.351697,
@@ -1296,7 +1297,7 @@ export const offers: OfferCardType[] = [
     'price': 450,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/13.jpg',
     'city': {
-      'name': 'Brussels',
+      'name': 'Brussels' as CitiesEnum,
       'location': {
         'latitude': 50.846557,
         'longitude': 4.351697,
@@ -1319,7 +1320,7 @@ export const offers: OfferCardType[] = [
     'price': 251,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/12.jpg',
     'city': {
-      'name': 'Brussels',
+      'name': 'Brussels' as CitiesEnum,
       'location': {
         'latitude': 50.846557,
         'longitude': 4.351697,
@@ -1342,7 +1343,7 @@ export const offers: OfferCardType[] = [
     'price': 413,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/19.jpg',
     'city': {
-      'name': 'Brussels',
+      'name': 'Brussels' as CitiesEnum,
       'location': {
         'latitude': 50.846557,
         'longitude': 4.351697,
@@ -1365,7 +1366,7 @@ export const offers: OfferCardType[] = [
     'price': 240,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/13.jpg',
     'city': {
-      'name': 'Brussels',
+      'name': 'Brussels' as CitiesEnum,
       'location': {
         'latitude': 50.846557,
         'longitude': 4.351697,
@@ -1388,7 +1389,7 @@ export const offers: OfferCardType[] = [
     'price': 518,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/10.jpg',
     'city': {
-      'name': 'Amsterdam',
+      'name': 'Amsterdam' as CitiesEnum,
       'location': {
         'latitude': 52.37454,
         'longitude': 4.897976,
@@ -1411,7 +1412,7 @@ export const offers: OfferCardType[] = [
     'price': 198,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/20.jpg',
     'city': {
-      'name': 'Amsterdam',
+      'name': 'Amsterdam' as CitiesEnum,
       'location': {
         'latitude': 52.37454,
         'longitude': 4.897976,
@@ -1434,7 +1435,7 @@ export const offers: OfferCardType[] = [
     'price': 164,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/5.jpg',
     'city': {
-      'name': 'Amsterdam',
+      'name': 'Amsterdam' as CitiesEnum,
       'location': {
         'latitude': 52.37454,
         'longitude': 4.897976,
@@ -1457,7 +1458,7 @@ export const offers: OfferCardType[] = [
     'price': 246,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/14.jpg',
     'city': {
-      'name': 'Amsterdam',
+      'name': 'Amsterdam' as CitiesEnum,
       'location': {
         'latitude': 52.37454,
         'longitude': 4.897976,
@@ -1480,7 +1481,7 @@ export const offers: OfferCardType[] = [
     'price': 146,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/15.jpg',
     'city': {
-      'name': 'Amsterdam',
+      'name': 'Amsterdam' as CitiesEnum,
       'location': {
         'latitude': 52.37454,
         'longitude': 4.897976,
@@ -1503,7 +1504,7 @@ export const offers: OfferCardType[] = [
     'price': 236,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/20.jpg',
     'city': {
-      'name': 'Amsterdam',
+      'name': 'Amsterdam' as CitiesEnum,
       'location': {
         'latitude': 52.37454,
         'longitude': 4.897976,
@@ -1526,7 +1527,7 @@ export const offers: OfferCardType[] = [
     'price': 329,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/16.jpg',
     'city': {
-      'name': 'Amsterdam',
+      'name': 'Amsterdam' as CitiesEnum,
       'location': {
         'latitude': 52.37454,
         'longitude': 4.897976,
@@ -1549,7 +1550,7 @@ export const offers: OfferCardType[] = [
     'price': 218,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/7.jpg',
     'city': {
-      'name': 'Amsterdam',
+      'name': 'Amsterdam' as CitiesEnum,
       'location': {
         'latitude': 52.37454,
         'longitude': 4.897976,
@@ -1572,7 +1573,7 @@ export const offers: OfferCardType[] = [
     'price': 884,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/17.jpg',
     'city': {
-      'name': 'Amsterdam',
+      'name': 'Amsterdam' as CitiesEnum,
       'location': {
         'latitude': 52.37454,
         'longitude': 4.897976,
@@ -1595,7 +1596,7 @@ export const offers: OfferCardType[] = [
     'price': 216,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/8.jpg',
     'city': {
-      'name': 'Amsterdam',
+      'name': 'Amsterdam' as CitiesEnum,
       'location': {
         'latitude': 52.37454,
         'longitude': 4.897976,
@@ -1618,7 +1619,7 @@ export const offers: OfferCardType[] = [
     'price': 200,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/17.jpg',
     'city': {
-      'name': 'Amsterdam',
+      'name': 'Amsterdam' as CitiesEnum,
       'location': {
         'latitude': 52.37454,
         'longitude': 4.897976,
@@ -1641,7 +1642,7 @@ export const offers: OfferCardType[] = [
     'price': 199,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/13.jpg',
     'city': {
-      'name': 'Amsterdam',
+      'name': 'Amsterdam' as CitiesEnum,
       'location': {
         'latitude': 52.37454,
         'longitude': 4.897976,
@@ -1664,7 +1665,7 @@ export const offers: OfferCardType[] = [
     'price': 345,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/5.jpg',
     'city': {
-      'name': 'Amsterdam',
+      'name': 'Amsterdam' as CitiesEnum,
       'location': {
         'latitude': 52.37454,
         'longitude': 4.897976,
@@ -1687,7 +1688,7 @@ export const offers: OfferCardType[] = [
     'price': 313,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/4.jpg',
     'city': {
-      'name': 'Amsterdam',
+      'name': 'Amsterdam' as CitiesEnum,
       'location': {
         'latitude': 52.37454,
         'longitude': 4.897976,
@@ -1710,7 +1711,7 @@ export const offers: OfferCardType[] = [
     'price': 415,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/6.jpg',
     'city': {
-      'name': 'Amsterdam',
+      'name': 'Amsterdam' as CitiesEnum,
       'location': {
         'latitude': 52.37454,
         'longitude': 4.897976,
@@ -1733,7 +1734,7 @@ export const offers: OfferCardType[] = [
     'price': 356,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/12.jpg',
     'city': {
-      'name': 'Amsterdam',
+      'name': 'Amsterdam' as CitiesEnum,
       'location': {
         'latitude': 52.37454,
         'longitude': 4.897976,
@@ -1756,7 +1757,7 @@ export const offers: OfferCardType[] = [
     'price': 156,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/15.jpg',
     'city': {
-      'name': 'Amsterdam',
+      'name': 'Amsterdam' as CitiesEnum,
       'location': {
         'latitude': 52.37454,
         'longitude': 4.897976,
@@ -1779,7 +1780,7 @@ export const offers: OfferCardType[] = [
     'price': 620,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/4.jpg',
     'city': {
-      'name': 'Amsterdam',
+      'name': 'Amsterdam' as CitiesEnum,
       'location': {
         'latitude': 52.37454,
         'longitude': 4.897976,
@@ -1802,7 +1803,7 @@ export const offers: OfferCardType[] = [
     'price': 172,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/10.jpg',
     'city': {
-      'name': 'Amsterdam',
+      'name': 'Amsterdam' as CitiesEnum,
       'location': {
         'latitude': 52.37454,
         'longitude': 4.897976,
@@ -1825,7 +1826,7 @@ export const offers: OfferCardType[] = [
     'price': 153,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/4.jpg',
     'city': {
-      'name': 'Amsterdam',
+      'name': 'Amsterdam' as CitiesEnum,
       'location': {
         'latitude': 52.37454,
         'longitude': 4.897976,
@@ -1848,7 +1849,7 @@ export const offers: OfferCardType[] = [
     'price': 222,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/16.jpg',
     'city': {
-      'name': 'Hamburg',
+      'name': 'Hamburg' as CitiesEnum,
       'location': {
         'latitude': 53.550341,
         'longitude': 10.000654,
@@ -1871,7 +1872,7 @@ export const offers: OfferCardType[] = [
     'price': 217,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/1.jpg',
     'city': {
-      'name': 'Hamburg',
+      'name': 'Hamburg' as CitiesEnum,
       'location': {
         'latitude': 53.550341,
         'longitude': 10.000654,
@@ -1894,7 +1895,7 @@ export const offers: OfferCardType[] = [
     'price': 125,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/18.jpg',
     'city': {
-      'name': 'Hamburg',
+      'name': 'Hamburg' as CitiesEnum,
       'location': {
         'latitude': 53.550341,
         'longitude': 10.000654,
@@ -1917,7 +1918,7 @@ export const offers: OfferCardType[] = [
     'price': 405,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/2.jpg',
     'city': {
-      'name': 'Hamburg',
+      'name': 'Hamburg' as CitiesEnum,
       'location': {
         'latitude': 53.550341,
         'longitude': 10.000654,
@@ -1940,7 +1941,7 @@ export const offers: OfferCardType[] = [
     'price': 188,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/2.jpg',
     'city': {
-      'name': 'Hamburg',
+      'name': 'Hamburg' as CitiesEnum,
       'location': {
         'latitude': 53.550341,
         'longitude': 10.000654,
@@ -1963,7 +1964,7 @@ export const offers: OfferCardType[] = [
     'price': 467,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/7.jpg',
     'city': {
-      'name': 'Hamburg',
+      'name': 'Hamburg' as CitiesEnum,
       'location': {
         'latitude': 53.550341,
         'longitude': 10.000654,
@@ -1986,7 +1987,7 @@ export const offers: OfferCardType[] = [
     'price': 387,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/18.jpg',
     'city': {
-      'name': 'Hamburg',
+      'name': 'Hamburg' as CitiesEnum,
       'location': {
         'latitude': 53.550341,
         'longitude': 10.000654,
@@ -2009,7 +2010,7 @@ export const offers: OfferCardType[] = [
     'price': 276,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/5.jpg',
     'city': {
-      'name': 'Hamburg',
+      'name': 'Hamburg' as CitiesEnum,
       'location': {
         'latitude': 53.550341,
         'longitude': 10.000654,
@@ -2032,7 +2033,7 @@ export const offers: OfferCardType[] = [
     'price': 190,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/6.jpg',
     'city': {
-      'name': 'Hamburg',
+      'name': 'Hamburg' as CitiesEnum,
       'location': {
         'latitude': 53.550341,
         'longitude': 10.000654,
@@ -2055,7 +2056,7 @@ export const offers: OfferCardType[] = [
     'price': 412,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/16.jpg',
     'city': {
-      'name': 'Hamburg',
+      'name': 'Hamburg' as CitiesEnum,
       'location': {
         'latitude': 53.550341,
         'longitude': 10.000654,
@@ -2078,7 +2079,7 @@ export const offers: OfferCardType[] = [
     'price': 438,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/13.jpg',
     'city': {
-      'name': 'Hamburg',
+      'name': 'Hamburg' as CitiesEnum,
       'location': {
         'latitude': 53.550341,
         'longitude': 10.000654,
@@ -2101,7 +2102,7 @@ export const offers: OfferCardType[] = [
     'price': 165,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/13.jpg',
     'city': {
-      'name': 'Hamburg',
+      'name': 'Hamburg' as CitiesEnum,
       'location': {
         'latitude': 53.550341,
         'longitude': 10.000654,
@@ -2124,7 +2125,7 @@ export const offers: OfferCardType[] = [
     'price': 394,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/3.jpg',
     'city': {
-      'name': 'Hamburg',
+      'name': 'Hamburg' as CitiesEnum,
       'location': {
         'latitude': 53.550341,
         'longitude': 10.000654,
@@ -2147,7 +2148,7 @@ export const offers: OfferCardType[] = [
     'price': 433,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/20.jpg',
     'city': {
-      'name': 'Hamburg',
+      'name': 'Hamburg' as CitiesEnum,
       'location': {
         'latitude': 53.550341,
         'longitude': 10.000654,
@@ -2170,7 +2171,7 @@ export const offers: OfferCardType[] = [
     'price': 163,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/10.jpg',
     'city': {
-      'name': 'Hamburg',
+      'name': 'Hamburg' as CitiesEnum,
       'location': {
         'latitude': 53.550341,
         'longitude': 10.000654,
@@ -2193,7 +2194,7 @@ export const offers: OfferCardType[] = [
     'price': 161,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/5.jpg',
     'city': {
-      'name': 'Hamburg',
+      'name': 'Hamburg' as CitiesEnum,
       'location': {
         'latitude': 53.550341,
         'longitude': 10.000654,
@@ -2216,7 +2217,7 @@ export const offers: OfferCardType[] = [
     'price': 173,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/20.jpg',
     'city': {
-      'name': 'Hamburg',
+      'name': 'Hamburg' as CitiesEnum,
       'location': {
         'latitude': 53.550341,
         'longitude': 10.000654,
@@ -2239,7 +2240,7 @@ export const offers: OfferCardType[] = [
     'price': 211,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/19.jpg',
     'city': {
-      'name': 'Hamburg',
+      'name': 'Hamburg' as CitiesEnum,
       'location': {
         'latitude': 53.550341,
         'longitude': 10.000654,
@@ -2262,7 +2263,7 @@ export const offers: OfferCardType[] = [
     'price': 389,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/7.jpg',
     'city': {
-      'name': 'Hamburg',
+      'name': 'Hamburg' as CitiesEnum,
       'location': {
         'latitude': 53.550341,
         'longitude': 10.000654,
@@ -2285,7 +2286,7 @@ export const offers: OfferCardType[] = [
     'price': 179,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/11.jpg',
     'city': {
-      'name': 'Hamburg',
+      'name': 'Hamburg' as CitiesEnum,
       'location': {
         'latitude': 53.550341,
         'longitude': 10.000654,
@@ -2308,7 +2309,7 @@ export const offers: OfferCardType[] = [
     'price': 392,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/8.jpg',
     'city': {
-      'name': 'Dusseldorf',
+      'name': 'Dusseldorf' as CitiesEnum,
       'location': {
         'latitude': 51.225402,
         'longitude': 6.776314,
@@ -2331,7 +2332,7 @@ export const offers: OfferCardType[] = [
     'price': 959,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/6.jpg',
     'city': {
-      'name': 'Dusseldorf',
+      'name': 'Dusseldorf' as CitiesEnum,
       'location': {
         'latitude': 51.225402,
         'longitude': 6.776314,
@@ -2354,7 +2355,7 @@ export const offers: OfferCardType[] = [
     'price': 215,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/10.jpg',
     'city': {
-      'name': 'Dusseldorf',
+      'name': 'Dusseldorf' as CitiesEnum,
       'location': {
         'latitude': 51.225402,
         'longitude': 6.776314,
@@ -2377,7 +2378,7 @@ export const offers: OfferCardType[] = [
     'price': 202,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/17.jpg',
     'city': {
-      'name': 'Dusseldorf',
+      'name': 'Dusseldorf' as CitiesEnum,
       'location': {
         'latitude': 51.225402,
         'longitude': 6.776314,
@@ -2400,7 +2401,7 @@ export const offers: OfferCardType[] = [
     'price': 103,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/20.jpg',
     'city': {
-      'name': 'Dusseldorf',
+      'name': 'Dusseldorf' as CitiesEnum,
       'location': {
         'latitude': 51.225402,
         'longitude': 6.776314,
@@ -2423,7 +2424,7 @@ export const offers: OfferCardType[] = [
     'price': 308,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/20.jpg',
     'city': {
-      'name': 'Dusseldorf',
+      'name': 'Dusseldorf' as CitiesEnum,
       'location': {
         'latitude': 51.225402,
         'longitude': 6.776314,
@@ -2446,7 +2447,7 @@ export const offers: OfferCardType[] = [
     'price': 368,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/20.jpg',
     'city': {
-      'name': 'Dusseldorf',
+      'name': 'Dusseldorf' as CitiesEnum,
       'location': {
         'latitude': 51.225402,
         'longitude': 6.776314,
@@ -2469,7 +2470,7 @@ export const offers: OfferCardType[] = [
     'price': 200,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/6.jpg',
     'city': {
-      'name': 'Dusseldorf',
+      'name': 'Dusseldorf' as CitiesEnum,
       'location': {
         'latitude': 51.225402,
         'longitude': 6.776314,
@@ -2492,7 +2493,7 @@ export const offers: OfferCardType[] = [
     'price': 247,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/11.jpg',
     'city': {
-      'name': 'Dusseldorf',
+      'name': 'Dusseldorf' as CitiesEnum,
       'location': {
         'latitude': 51.225402,
         'longitude': 6.776314,
@@ -2515,7 +2516,7 @@ export const offers: OfferCardType[] = [
     'price': 237,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/3.jpg',
     'city': {
-      'name': 'Dusseldorf',
+      'name': 'Dusseldorf' as CitiesEnum,
       'location': {
         'latitude': 51.225402,
         'longitude': 6.776314,
@@ -2538,7 +2539,7 @@ export const offers: OfferCardType[] = [
     'price': 965,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/7.jpg',
     'city': {
-      'name': 'Dusseldorf',
+      'name': 'Dusseldorf' as CitiesEnum,
       'location': {
         'latitude': 51.225402,
         'longitude': 6.776314,
@@ -2561,7 +2562,7 @@ export const offers: OfferCardType[] = [
     'price': 252,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/10.jpg',
     'city': {
-      'name': 'Dusseldorf',
+      'name': 'Dusseldorf' as CitiesEnum,
       'location': {
         'latitude': 51.225402,
         'longitude': 6.776314,
@@ -2584,7 +2585,7 @@ export const offers: OfferCardType[] = [
     'price': 472,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/8.jpg',
     'city': {
-      'name': 'Dusseldorf',
+      'name': 'Dusseldorf' as CitiesEnum,
       'location': {
         'latitude': 51.225402,
         'longitude': 6.776314,
@@ -2607,7 +2608,7 @@ export const offers: OfferCardType[] = [
     'price': 694,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/8.jpg',
     'city': {
-      'name': 'Dusseldorf',
+      'name': 'Dusseldorf' as CitiesEnum,
       'location': {
         'latitude': 51.225402,
         'longitude': 6.776314,
@@ -2630,7 +2631,7 @@ export const offers: OfferCardType[] = [
     'price': 299,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/2.jpg',
     'city': {
-      'name': 'Dusseldorf',
+      'name': 'Dusseldorf' as CitiesEnum,
       'location': {
         'latitude': 51.225402,
         'longitude': 6.776314,
@@ -2653,7 +2654,7 @@ export const offers: OfferCardType[] = [
     'price': 713,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/3.jpg',
     'city': {
-      'name': 'Dusseldorf',
+      'name': 'Dusseldorf' as CitiesEnum,
       'location': {
         'latitude': 51.225402,
         'longitude': 6.776314,
@@ -2676,7 +2677,7 @@ export const offers: OfferCardType[] = [
     'price': 258,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/3.jpg',
     'city': {
-      'name': 'Dusseldorf',
+      'name': 'Dusseldorf' as CitiesEnum,
       'location': {
         'latitude': 51.225402,
         'longitude': 6.776314,
@@ -2699,7 +2700,7 @@ export const offers: OfferCardType[] = [
     'price': 784,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/15.jpg',
     'city': {
-      'name': 'Dusseldorf',
+      'name': 'Dusseldorf' as CitiesEnum,
       'location': {
         'latitude': 51.225402,
         'longitude': 6.776314,
@@ -2722,7 +2723,7 @@ export const offers: OfferCardType[] = [
     'price': 688,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/12.jpg',
     'city': {
-      'name': 'Dusseldorf',
+      'name': 'Dusseldorf' as CitiesEnum,
       'location': {
         'latitude': 51.225402,
         'longitude': 6.776314,
@@ -2745,7 +2746,7 @@ export const offers: OfferCardType[] = [
     'price': 190,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/11.jpg',
     'city': {
-      'name': 'Dusseldorf',
+      'name': 'Dusseldorf' as CitiesEnum,
       'location': {
         'latitude': 51.225402,
         'longitude': 6.776314,

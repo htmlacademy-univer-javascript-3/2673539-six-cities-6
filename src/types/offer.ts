@@ -1,3 +1,5 @@
+import { CitiesEnum } from '../const';
+
 export type OfferCardType = {
   id: string;
   title: string;
@@ -27,7 +29,7 @@ export type LocationType = {
 };
 
 export type CityType = {
-  name: string;
+  name: CitiesEnum;
   location: LocationType;
 };
 
