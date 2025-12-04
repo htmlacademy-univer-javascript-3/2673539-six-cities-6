@@ -17,10 +17,7 @@ const Main: React.FC = () => {
 
   const [activeOfferId, setActiveOfferId] = useState<string | null>(null);
 
-
-
   const mainIsEmpty = offers.length === 0;
-
 
   return (
     <div className="page page--gray page--main">
