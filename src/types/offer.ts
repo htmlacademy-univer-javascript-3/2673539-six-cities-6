@@ -1,4 +1,4 @@
-import { CitiesEnum } from "../const";
+import { CitiesEnum } from '../const';
 
 export type OfferCardType = {
   id: string;

@@ -9,7 +9,7 @@ interface FavoritesListProps {
 
 const FavoritesList: React.FC<FavoritesListProps> = ({ offers }) => {
   const groupedOffers = offers.filter((offer) => offer.isFavorite).reduce((acc: { [key in CitiesEnum]?: OfferCardType[] }, offer) => {
-    const city = offer.city.name as CitiesEnum;
+    const city = offer.city.name;
     if (!acc[city]) {
       acc[city] = [];
     }

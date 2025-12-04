@@ -22,7 +22,7 @@ const OffersList: React.FC<OffersListProps> = ({ offers, currentCity, onActiveOf
     <div className="cities__places-list places__list tabs__content">
       {offers.length > 0 &&
         offers
-          .filter((offer) => offer.city.name === currentCity.toString())
+          .filter((offer) => offer.city.name === currentCity)
           .map((offer) => (
             <Card
               onMouseEnter={() => handleCardMouseEnter(offer.id)}

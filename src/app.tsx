@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Route, BrowserRouter, Routes } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import { AppRoute } from './const';
@@ -11,9 +11,8 @@ import PrivateRoute from './components/private-route/private-route';
 import { AuthorizationStatus } from './const';
 import { OfferCardType } from './types/offer';
 
-import { useDispatch, useSelector } from 'react-redux';
-import { changeCity, loadOffers } from './store/actions/action';
-import { RootState } from './store';
+import { useDispatch } from 'react-redux';
+import { loadOffers } from './store/actions/action';
 
 interface AppProps {
   testOffers: OfferCardType[];
@@ -22,9 +21,6 @@ interface AppProps {
 const App: React.FC<AppProps> = ({ testOffers }) => {
   const dispatch = useDispatch();
   dispatch(loadOffers(testOffers));
-
-  // const currentCity = useSelector((state: RootState) => state.city);
-  // const offers = useSelector((state: RootState) => state.offers);
 
   return (
     <HelmetProvider>
@@ -58,6 +54,6 @@ const App: React.FC<AppProps> = ({ testOffers }) => {
       </BrowserRouter>
     </HelmetProvider>
   );
-}
+};
 
 export default App;

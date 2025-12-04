@@ -2,16 +2,11 @@ import React, { useState, useMemo } from 'react';
 import Header from '../../components/header/header';
 import CitiesTabs from '../../components/cities-tabs/cities-tabs';
 import EmptyMain from '../../components/empty-main/empty-main';
-
 import OffersList from '../../components/offers-list/offers-list';
 import Map from '../../components/map/map';
 import { PlacesOptions } from '../../types/places-options';
-
-
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store';
-
-
 
 
 const Main: React.FC = () => {
@@ -23,8 +18,6 @@ const Main: React.FC = () => {
   const [activeOfferId, setActiveOfferId] = useState<string | null>(null);
   const [selectedOption, setSelectedOption] = useState<PlacesOptions>(PlacesOptions.Popular);
   const [isSortingOpen, setIsSortingOpen] = useState<boolean>(false);
-
-
 
   const sortedOffers = useMemo(() => {
     const offersCopy = [...offers];
@@ -52,7 +45,7 @@ const Main: React.FC = () => {
       <Header userEmail="Oliver.conner@gmail.com" favoriteCount={3} isLoggedIn />
 
       <main className="page__main page__main--index">
-        <CitiesTabs  />
+        <CitiesTabs />
 
         {mainIsEmpty ? (
           <EmptyMain />

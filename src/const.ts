@@ -1,4 +1,4 @@
-import { CityType, LocationType } from "./types/offer";
+import { CityType, LocationType } from './types/offer';
 
 export enum AppRoute {
   Login = '/login',
@@ -21,8 +21,6 @@ export enum CitiesEnum {
   Dusseldorf = 'Dusseldorf',
 }
 
-
-
 const locations: Record<CitiesEnum, LocationType> = {
   [CitiesEnum.Paris]: { latitude: 48.85661, longitude: 2.351499, zoom: 13 },
   [CitiesEnum.Cologne]: { latitude: 50.9375, longitude: 6.9603, zoom: 12 },
@@ -38,7 +36,6 @@ export const SixCities: CityType[] = Object.values(CitiesEnum).map(
     location: locations[cityName as CitiesEnum],
   })
 );
-
 
 export const URL_MARKER_DEFAULT =
   'https://assets.htmlacademy.ru/content/intensive/javascript-1/demo/interactive-map/pin.svg';
