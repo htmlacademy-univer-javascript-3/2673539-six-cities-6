@@ -2,30 +2,32 @@ import React, { useState, useMemo } from 'react';
 import Header from '../../components/header/header';
 import CitiesTabs from '../../components/cities-tabs/cities-tabs';
 import EmptyMain from '../../components/empty-main/empty-main';
-import { OfferCardType } from '../../types/offer';
-import { SixCities } from '../../const';
+
 import OffersList from '../../components/offers-list/offers-list';
 import Map from '../../components/map/map';
 import { PlacesOptions } from '../../types/places-options';
 
 
-export interface MainProps {
-  offers: OfferCardType[];
-}
+import { useSelector } from 'react-redux';
+import { RootState } from '../../store';
 
-const Main: React.FC<MainProps> = ({ offers }) => {
+
+
+
+const Main: React.FC = () => {
+  const city = useSelector((state: RootState) => state.city);
+  const offers = useSelector((state: RootState) =>
+    state.offers.filter((offer) => offer.city.name === city.name)
+  );
+
   const [activeOfferId, setActiveOfferId] = useState<string | null>(null);
-  const [currentCity, setCurrentCity] = useState<SixCities>(SixCities.Amsterdam);
   const [selectedOption, setSelectedOption] = useState<PlacesOptions>(PlacesOptions.Popular);
   const [isSortingOpen, setIsSortingOpen] = useState<boolean>(false);
 
-  const filteredOffers = useMemo(
-    () => offers.filter((offer) => offer.city.name === currentCity.toString()),
-    [offers, currentCity]
-  );
+
 
   const sortedOffers = useMemo(() => {
-    const offersCopy = [...filteredOffers];
+    const offersCopy = [...offers];
     switch (selectedOption) {
       case PlacesOptions.LowToHigh:
         return offersCopy.sort((a, b) => a.price - b.price);
@@ -36,7 +38,7 @@ const Main: React.FC<MainProps> = ({ offers }) => {
       default:
         return offersCopy;
     }
-  }, [filteredOffers, selectedOption]);
+  }, [offers, selectedOption]);
 
   const mainIsEmpty = sortedOffers.length === 0;
 
@@ -50,7 +52,7 @@ const Main: React.FC<MainProps> = ({ offers }) => {
       <Header userEmail="Oliver.conner@gmail.com" favoriteCount={3} isLoggedIn />
 
       <main className="page__main page__main--index">
-        <CitiesTabs CurrentCity={currentCity} SetCurrentCity={setCurrentCity} />
+        <CitiesTabs  />
 
         {mainIsEmpty ? (
           <EmptyMain />
@@ -60,7 +62,7 @@ const Main: React.FC<MainProps> = ({ offers }) => {
               <section className="cities__places places">
                 <h2 className="visually-hidden">Places</h2>
                 <b className="places__found">
-                  {sortedOffers.length} places to stay in {currentCity}
+                  {sortedOffers.length} places to stay in {city.name}
                 </b>
 
                 <form className="places__sorting" action="#" method="get">
@@ -96,7 +98,7 @@ const Main: React.FC<MainProps> = ({ offers }) => {
 
                 <OffersList
                   offers={sortedOffers}
-                  currentCity={currentCity}
+                  currentCity={city.name}
                   onActiveOfferChange={setActiveOfferId}
                 />
               </section>

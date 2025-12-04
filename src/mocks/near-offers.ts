@@ -1,4 +1,5 @@
 import { OfferCardType } from '../types/offer.ts';
+import { CitiesEnum } from '../const.ts';
 
 export const nearOffersMock: OfferCardType[] = [
   {
@@ -8,7 +9,7 @@ export const nearOffersMock: OfferCardType[] = [
     'price': 156,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/15.jpg',
     'city': {
-      'name': 'Amsterdam',
+      'name': 'Amsterdam' as CitiesEnum,
       'location': {
         'latitude': 52.37454,
         'longitude': 4.897976,
@@ -31,7 +32,7 @@ export const nearOffersMock: OfferCardType[] = [
     'price': 620,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/4.jpg',
     'city': {
-      'name': 'Amsterdam',
+      'name': 'Amsterdam' as CitiesEnum,
       'location': {
         'latitude': 52.37454,
         'longitude': 4.897976,
@@ -54,7 +55,7 @@ export const nearOffersMock: OfferCardType[] = [
     'price': 172,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/10.jpg',
     'city': {
-      'name': 'Amsterdam',
+      'name': 'Amsterdam' as CitiesEnum,
       'location': {
         'latitude': 52.37454,
         'longitude': 4.897976,
@@ -77,7 +78,7 @@ export const nearOffersMock: OfferCardType[] = [
     'price': 153,
     'previewImage': 'https://14.design.htmlacademy.pro/static/hotel/4.jpg',
     'city': {
-      'name': 'Amsterdam',
+      'name': 'Amsterdam' as CitiesEnum,
       'location': {
         'latitude': 52.37454,
         'longitude': 4.897976,

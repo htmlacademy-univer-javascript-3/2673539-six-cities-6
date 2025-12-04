@@ -1,4 +1,5 @@
 import { OfferType } from '../types/offer';
+import { CitiesEnum } from '../const';
 
 export const oneOffer: OfferType = {
   'id': 'bd85c58f-1d46-47c9-a22e-640be1690ff1',
@@ -15,7 +16,7 @@ export const oneOffer: OfferType = {
     'https://14.design.htmlacademy.pro/static/hotel/12.jpg'
   ],
   'city': {
-    'name': 'Paris',
+    'name': 'Paris' as CitiesEnum,
     'location': {
       'latitude': 48.85661,
       'longitude': 2.351499,

@@ -1,11 +1,11 @@
 import React from 'react';
 import { OfferCardType } from '../../types/offer';
-import { SixCities } from '../../const';
+import { CitiesEnum } from '../../const';
 import Card from '../card/card';
 
 interface OffersListProps {
   offers: OfferCardType[];
-  currentCity: SixCities;
+  currentCity: CitiesEnum;
   onActiveOfferChange: (offerId: string | null) => void;
 }
 
