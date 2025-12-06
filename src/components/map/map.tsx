@@ -1,15 +1,15 @@
 import React, { useRef, useEffect } from 'react';
 import { Icon, Marker, layerGroup } from 'leaflet';
 import { CityType } from '../../types/offer';
-import { OfferCardType } from '../../types/offer';
+import { OfferInMap } from '../../types/offer';
 import { URL_MARKER_DEFAULT, URL_MARKER_CURRENT } from '../../const';
 import useMap from '../../hooks/use-map/use-map';
 import 'leaflet/dist/leaflet.css';
 
 type MapProps = {
   city: CityType;
-  offers: OfferCardType[];
-  currentOffer: OfferCardType | undefined;
+  offers: OfferInMap[];
+  currentOffer: OfferInMap | undefined;
 };
 
 const defaultCustomIcon = new Icon({
