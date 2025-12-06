@@ -3,6 +3,7 @@ import { OfferCardType } from '../../types/offer';
 import { CitiesEnum } from '../../const';
 import Card from '../card/card';
 
+
 interface FavoritesListProps {
   offers: OfferCardType[];
 }
@@ -30,6 +31,7 @@ const FavoritesList: React.FC<FavoritesListProps> = ({ offers }) => {
             </div>
           </div>
           <div className="favorites__places">
+            
             {cityOffers.map((offer) => (
               <Card
                 key={offer.id}
@@ -40,6 +42,7 @@ const FavoritesList: React.FC<FavoritesListProps> = ({ offers }) => {
                 rating={offer.rating}
                 type={offer.type}
                 title={offer.title}
+                isFavorite={offer.isFavorite}
                 isFromFavoritePage
               />
             ))}

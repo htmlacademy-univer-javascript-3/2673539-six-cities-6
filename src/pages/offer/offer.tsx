@@ -19,10 +19,8 @@ import {
 const Offer: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
 
-  // 1. Достаём ID из URL
   const { offerId } = useParams<{ offerId: string }>();
 
-  // 2. Берём данные из Redux
   const offer = useSelector((state: RootState) => state.offer);
   const nearbyOffers = useSelector((state: RootState) => state.nearbyOffers);
   const comments = useSelector((state: RootState) => state.comments);
@@ -30,7 +28,6 @@ const Offer: React.FC = () => {
 
   const isLogged = authorizationStatus === 'AUTH';
 
-  // 3. Запрашиваем данные при заходе на страницу
   useEffect(() => {
     if (offerId) {
       dispatch(fetchDetailedOfferAction(offerId));
@@ -40,7 +37,6 @@ const Offer: React.FC = () => {
   }, [dispatch, offerId]);
 
 
-  // ➤ Если offer не найден (API вернул 404)
   if (!offer) {
     return (
       <div className="page">
@@ -59,7 +55,6 @@ const Offer: React.FC = () => {
       <main className="page__main page__main--offer">
         <section className="offer">
 
-          {/* Галерея */}
           <div className="offer__gallery-container container">
             <div className="offer__gallery">
               {offer.images.map((image) => (
@@ -117,7 +112,6 @@ const Offer: React.FC = () => {
                 </ul>
               </div>
 
-              {/* Хост */}
               <div className="offer__host">
                 <h2 className="offer__host-title">Meet the host</h2>
 
@@ -140,27 +134,23 @@ const Offer: React.FC = () => {
                 </div>
               </div>
 
-              {/* Отзывы */}
               <section className="offer__reviews reviews">
                 <ReviewsList reviews={comments} />
-                {isLogged && <YourReviewForm />}
-                {/* {isLogged && <YourReviewForm offerId={offer.id.toString()} />} */}
+                {isLogged && <YourReviewForm offerId={offer.id} />}
               </section>
 
             </div>
           </div>
 
-          {/* Карта */}
           <section className="offer__map map">
             <Map
               city={offer.city}
-              offers={nearbyOffers}
+              offers={[offer, ...nearbyOffers]}
               currentOffer={offer}
             />
           </section>
         </section>
 
-        {/* Блок похожих предложений */}
         <div className="container">
           <NearOffersList offers={nearbyOffers} />
         </div>

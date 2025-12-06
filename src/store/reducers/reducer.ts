@@ -17,7 +17,10 @@ import {
   setNearbyOffers,
   setComments,
   addComment,
+  addFavoriteOffer,
+  removeFavoriteOffer,
 } from '../actions/action';
+import { changeFavoriteAction } from '../actions/api-actions';
 
 type State = {
   city: CityType;
@@ -54,9 +57,6 @@ export const reducer = createReducer(initialState, (builder) => {
     .addCase(setOffersDataLoadingStatus, (state, action) => {
       state.isOffersDataLoading = action.payload;
     })
-    .addCase(setFavoriteOffers, (state, action) => {
-      state.favoriteOffers = action.payload;
-    })
     .addCase(requireAuthorization, (state, action) => {
       state.authorizationStatus = action.payload;
     })
@@ -74,5 +74,33 @@ export const reducer = createReducer(initialState, (builder) => {
     })
     .addCase(addComment, (state, action) => {
       state.comments.push(action.payload);
+    })
+    .addCase(setFavoriteOffers, (state, action) => {
+      state.favoriteOffers = action.payload;
+    })
+    .addCase(addFavoriteOffer, (state, action) => {
+      const updated = action.payload;
+      const index = state.favoriteOffers.findIndex(o => o.id === updated.id);
+
+      if (index === -1) {
+        state.favoriteOffers.push(updated);
+      } else {
+        state.favoriteOffers[index] = updated;
+      }
+    })
+    .addCase(removeFavoriteOffer, (state, action) => {
+      state.favoriteOffers = state.favoriteOffers.filter(
+        (offer) => offer.id !== action.payload
+      );
+    })
+    .addCase(changeFavoriteAction.fulfilled, (state, action) => {
+      const { offerId, status } = action.payload;
+      const isFavorite = status === 1;
+
+      const offer = state.offers.find((o) => o.id === offerId);
+      if (offer) {
+        offer.isFavorite = isFavorite;
+      }
     });
-});
+})
+

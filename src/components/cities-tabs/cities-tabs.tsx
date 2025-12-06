@@ -4,11 +4,12 @@ import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../../store';
 import { changeCity } from '../../store/actions/action';
 import { SixCities } from '../../const';
+import { AppDispatch } from '../../store';
 
 const cityList = Object.values(CitiesEnum);
 
 const CitiesTabs: React.FC = () => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   const currentCity = useSelector((state: RootState) => state.city);
 
   const handleCityClick = (cityName: CitiesEnum) => {
