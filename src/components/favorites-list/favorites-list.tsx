@@ -35,14 +35,7 @@ const FavoritesList: React.FC<FavoritesListProps> = ({ offers }) => {
             {cityOffers.map((offer) => (
               <Card
                 key={offer.id}
-                id={offer.id}
-                isPremium={offer.isPremium}
-                imageUrl={offer.previewImage}
-                price={offer.price}
-                rating={offer.rating}
-                type={offer.type}
-                title={offer.title}
-                isFavorite={offer.isFavorite}
+                offer={offer}
                 isFromFavoritePage
               />
             ))}

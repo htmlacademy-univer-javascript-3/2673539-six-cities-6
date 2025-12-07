@@ -13,14 +13,7 @@ const NearOffersList: React.FC<NearOffersListProps> = ({ offers }) => (
       {offers.map((offer) => (
         <Card
           key={offer.id}
-          id={offer.id}
-          imageUrl={offer.previewImage}
-          price={offer.price}
-          rating={offer.rating}
-          type={offer.type}
-          title={offer.title}
-          isFavorite={offer.isFavorite}
-          isPremium={offer.isPremium}
+          offer={offer}
         />
       ))}
     </div>
