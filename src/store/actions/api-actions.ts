@@ -10,6 +10,7 @@ import { AppRoute } from '../../const';
 import { saveToken } from '../../token.ts';
 import { dropToken } from '../../token.ts';
 import { ReviewType } from '../../types/review.ts';
+import { store } from '../index.ts';
 import {
   loadOffers,
   setOffersDataLoadingStatus,
@@ -20,15 +21,14 @@ import {
   setDetailedOffer,
   setNearbyOffers,
   setComments,
-  addComment
+  addComment,
+  addFavoriteOffer,
+  removeFavoriteOffer
 } from './action';
 
+export type State = ReturnType<typeof store.getState>;
 
-export const fetchOffersAction = createAsyncThunk<
-  OfferCardType[],
-  void,
-  { dispatch: AppDispatch; extra: AxiosInstance; }
->(
+export const fetchOffersAction = createAsyncThunk< OfferCardType[], undefined, { dispatch: AppDispatch; extra: AxiosInstance; }>(
   'data/fetchOffers',
   async (_arg, { dispatch, extra: api }) => {
     dispatch(setOffersDataLoadingStatus(true));
@@ -42,14 +42,6 @@ export const fetchOffersAction = createAsyncThunk<
 
     return data;
   }
-);
-
-export const fetchFavoriteOffersAction = createAsyncThunk<void, undefined, { dispatch: AppDispatch; extra: AxiosInstance; }>(
-  'data/fetchFavoriteOffers',
-  async (_arg, { dispatch, extra: api }) => {
-    const { data } = await api.get<OfferCardType[]>(APIRoute.Favorite);
-    dispatch(setFavoriteOffers(data));
-  },
 );
 
 export const checkAuthAction = createAsyncThunk<void, undefined, { dispatch: AppDispatch; extra: AxiosInstance; }>(
@@ -74,7 +66,7 @@ export const loginAction = createAsyncThunk<void, AuthData, { dispatch: AppDispa
     dispatch(requireAuthorization(AuthorizationStatus.Auth));
     dispatch(setUserData(response.data));
     dispatch(fetchOffersAction());
-    //dispatch(fetchFavoriteOffersAction());
+    dispatch(fetchFavoriteOffersAction());
     dispatch(redirectToRoute(AppRoute.Root));
   },
 );
@@ -125,3 +117,23 @@ export const postCommentAction = createAsyncThunk<void, { offerId: string; comme
   },
 );
 
+export const fetchFavoriteOffersAction = createAsyncThunk<void, undefined, { dispatch: AppDispatch; extra: AxiosInstance; }>(
+  'data/fetchFavoriteOffers',
+  async (_arg, { dispatch, extra: api }) => {
+    const { data } = await api.get<OfferCardType[]>(APIRoute.Favorite);
+    dispatch(setFavoriteOffers(data));
+  },
+);
+
+export const changeFavoriteAction = createAsyncThunk<{ offerId: string; status: number }, { offerId: string; status: number }, { dispatch: AppDispatch; tate: State; extra: AxiosInstance;}>(
+  'data/changeFavorite',
+  async ({ offerId, status }, {dispatch, extra: api }) => {
+    const {data} = await api.post<OfferCardType>(`${APIRoute.Favorite}/${offerId}/${status}`);
+    if (status === 1) {
+      dispatch(addFavoriteOffer(data));
+    } else {
+      dispatch(removeFavoriteOffer(data.id));
+    }
+    return { offerId, status };
+  },
+);

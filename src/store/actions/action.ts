@@ -31,3 +31,7 @@ export const setNearbyOffers = createAction<OfferCardType[]>('offers/setNearbyOf
 export const setComments = createAction<ReviewType[]>('comments/setComments');
 
 export const addComment = createAction<ReviewType>('comments/addComment');
+
+export const addFavoriteOffer = createAction<OfferCardType>('user/addFavoriteOffer');
+
+export const removeFavoriteOffer = createAction<string>('user/removeFavoriteOffer');

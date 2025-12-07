@@ -6,7 +6,7 @@ import Main from './pages/main/main';
 import Login from './pages/login/login';
 import Favorites from './pages/favorites/favorites';
 import Offer from './pages/offer/offer';
-import NotFoundPage from './pages/not-found-page/not-found-page';
+import NotFoundPage from './pages/404-not-found-page/not-found-page';
 import PrivateRoute from './components/private-route/private-route';
 import { Spinner } from './components/spinner/spinner';
 import { useSelector } from 'react-redux';
