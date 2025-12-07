@@ -15,7 +15,7 @@ export const api = createAPI();
 const persistConfig = {
   key: 'six-cities',
   storage,
-  whitelist: ['user', 'city'],
+  whitelist: ['userState', 'cityState'],
 };
 
 const rootReducer = combineReducers({
