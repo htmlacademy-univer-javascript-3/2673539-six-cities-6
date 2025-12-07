@@ -1,7 +1,7 @@
 import React, { useState, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import { AppDispatch } from '../../store';
-import { postCommentAction } from '../../store/actions/api-actions';
+import { postCommentAction } from '../../store/api-actions';
 
 interface YourReviewFormProps {
   offerId: string;

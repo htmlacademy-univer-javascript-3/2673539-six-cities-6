@@ -5,7 +5,7 @@ import { RootState } from '../../store';
 import { PropsWithChildren } from 'react';
 
 function PrivateRoute({ children }: PropsWithChildren): JSX.Element {
-  const authorizationStatus = useSelector((state: RootState) => state.authorizationStatus);
+  const authorizationStatus = useSelector((state: RootState) => state.userState.authorizationStatus);
 
   return authorizationStatus === AuthorizationStatus.Auth
     ? <>{children}</>

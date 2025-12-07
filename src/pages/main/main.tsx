@@ -7,12 +7,14 @@ import Map from '../../components/map/map';
 import SortingOptions from '../../components/sorting-options/sorting-options';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store';
-
+import { SixCities } from '../../const';
 
 const Main: React.FC = () => {
-  const city = useSelector((state: RootState) => state.city);
+  const currentCity =
+    useSelector((state: RootState) => state.cityState.city) ?? SixCities[0];
+
   const offers = useSelector((state: RootState) =>
-    state.offers.filter((offer) => offer.city.name === city.name)
+    state.offersState.offers.filter((offer) => offer.city.name === currentCity.name)
   );
 
   const [activeOfferId, setActiveOfferId] = useState<string | null>(null);
@@ -33,15 +35,16 @@ const Main: React.FC = () => {
             <div className="cities__places-container container">
               <section className="cities__places places">
                 <h2 className="visually-hidden">Places</h2>
+
                 <b className="places__found">
-                  {offers.length} places to stay in {city.name}
+                  {offers.length} places to stay in {currentCity.name}
                 </b>
 
-                <SortingOptions offers={offers}></SortingOptions>
+                <SortingOptions offers={offers} />
 
                 <OffersList
                   offers={offers}
-                  currentCity={city.name}
+                  currentCity={currentCity.name}
                   onActiveOfferChange={setActiveOfferId}
                 />
               </section>

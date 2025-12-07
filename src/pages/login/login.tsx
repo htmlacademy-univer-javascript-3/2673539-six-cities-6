@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Header from '../../components/header/header';
 import { AppDispatch } from '../../store';
-import { loginAction } from '../../store/actions/api-actions';
+import { loginAction } from '../../store/api-actions';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../../store';
 import { AuthorizationStatus } from '../../const';
@@ -27,7 +27,7 @@ const Login: React.FC = () => {
     dispatch(loginAction({ email, password }));
   };
 
-  const authorizationStatus = useSelector((state: RootState) => state.authorizationStatus);
+  const authorizationStatus = useSelector((state: RootState) => state.userState.authorizationStatus);
 
 
   useEffect(() => {

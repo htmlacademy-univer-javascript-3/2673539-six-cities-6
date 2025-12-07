@@ -15,7 +15,7 @@ import { RootState } from './store';
 
 const App: React.FC = () => {
 
-  const isOffersDataLoading = useSelector((state: RootState) => state.isOffersDataLoading);
+  const isOffersDataLoading = useSelector((state: RootState) => state.offersState.isOffersDataLoading);
 
   if (isOffersDataLoading) {
     return (

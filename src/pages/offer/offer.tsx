@@ -13,7 +13,7 @@ import {
   fetchDetailedOfferAction,
   fetchNearbyOffersAction,
   fetchCommentsAction
-} from '../../store/actions/api-actions';
+} from '../../store/api-actions';
 
 
 const Offer: React.FC = () => {
@@ -21,10 +21,10 @@ const Offer: React.FC = () => {
 
   const { offerId } = useParams<{ offerId: string }>();
 
-  const offer = useSelector((state: RootState) => state.offer);
-  const nearbyOffers = useSelector((state: RootState) => state.nearbyOffers);
-  const comments = useSelector((state: RootState) => state.comments);
-  const authorizationStatus = useSelector((state: RootState) => state.authorizationStatus);
+  const offer = useSelector((state: RootState) => state.detailedOfferState.offer);
+  const nearbyOffers = useSelector((state: RootState) => state.detailedOfferState.nearbyOffers);
+  const comments = useSelector((state: RootState) => state.commentsState.comments);
+  const authorizationStatus = useSelector((state: RootState) => state.userState.authorizationStatus);
 
   const isLogged = authorizationStatus === 'AUTH';
 

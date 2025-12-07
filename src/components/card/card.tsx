@@ -1,8 +1,8 @@
 import React, { useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { AppRoute, AuthorizationStatus } from '../../const';
-import { changeFavoriteAction } from '../../store/actions/api-actions';
-import { redirectToRoute } from '../../store/actions/action';
+import { changeFavoriteAction } from '../../store/api-actions';
+import redirectToRoute from '../../store/redirect-action-placeholder';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch } from '../../store';
 import { RootState } from '../../store';
@@ -22,7 +22,7 @@ const Card: React.FC<CardProps> = ({
   onMouseLeave,
 }) => {
   const dispatch = useDispatch<AppDispatch>();
-  const authorizationStatus = useSelector(((state: RootState) => state.authorizationStatus));
+  const authorizationStatus = useSelector(((state: RootState) => state.userState.authorizationStatus));
 
   const handleFavoriteClick = useCallback(() => {
     if (authorizationStatus !== AuthorizationStatus.Auth) {
