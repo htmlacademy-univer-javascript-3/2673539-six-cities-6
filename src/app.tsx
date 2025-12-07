@@ -8,19 +8,21 @@ import Favorites from './pages/favorites/favorites';
 import Offer from './pages/offer/offer';
 import NotFoundPage from './pages/not-found-page/not-found-page';
 import PrivateRoute from './components/private-route/private-route';
+import { Spinner } from './components/spinner/spinner';
 import { AuthorizationStatus } from './const';
-import { OfferCardType } from './types/offer';
+import { useSelector } from 'react-redux';
+import { RootState } from './store';
 
-import { useDispatch } from 'react-redux';
-import { loadOffers } from './store/actions/action';
 
-interface AppProps {
-  testOffers: OfferCardType[];
-}
+const App: React.FC = () => {
 
-const App: React.FC<AppProps> = ({ testOffers }) => {
-  const dispatch = useDispatch();
-  dispatch(loadOffers(testOffers));
+  const isOffersDataLoading = useSelector((state: RootState) => state.isOffersDataLoading);
+
+  if (isOffersDataLoading) {
+    return (
+      <Spinner />
+    );
+  }
 
   return (
     <HelmetProvider>
@@ -38,7 +40,7 @@ const App: React.FC<AppProps> = ({ testOffers }) => {
             path={AppRoute.Favorites}
             element={
               <PrivateRoute authorizationStatus={AuthorizationStatus.Auth}>
-                <Favorites offers={testOffers} />
+                <Favorites />
               </PrivateRoute>
             }
           />
