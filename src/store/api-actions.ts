@@ -6,7 +6,7 @@ import { OfferCardType, OfferType } from '../types/offer';
 import { ReviewType } from '../types/review';
 import { APIRoute, AppRoute, AuthorizationStatus } from '../const';
 import { saveToken, dropToken } from '../token';
-import { redirectToRoute as redirectActionCreator } from './redirect-action-placeholder'; // см. комментарий ниже
+import { redirectToRoute as redirectActionCreator } from './redirect-action-placeholder';
 
 import { loadOffers, setOffersDataLoadingStatus, updateOfferFavoriteStatus } from './reducers/offers-slice';
 import { requireAuthorization, setUserData, setFavoriteOffers, addFavoriteOffer, removeFavoriteOffer } from './reducers/user-slice';

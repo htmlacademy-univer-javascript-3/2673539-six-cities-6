@@ -52,12 +52,11 @@ const YourReviewForm: React.FC<YourReviewFormProps> = ({ offerId }) => {
           })
         );
 
-        // очистка формы после успешной отправки
         setRating(null);
         setReviewText('');
         setIsSubmitDisabled(true);
       } catch (error) {
-        console.error('Ошибка отправки комментария:', error);
+        alert(`Ошибка отправки комментария: ${error}`);
       } finally {
         setIsSending(false);
       }
