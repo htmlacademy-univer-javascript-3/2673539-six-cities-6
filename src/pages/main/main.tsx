@@ -21,7 +21,7 @@ const Main: React.FC = () => {
 
   return (
     <div className="page page--gray page--main">
-      <Header userEmail="Oliver.conner@gmail.com" favoriteCount={3} isLoggedIn />
+      <Header />
 
       <main className="page__main page__main--index">
         <CitiesTabs />

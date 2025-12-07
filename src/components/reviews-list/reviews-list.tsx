@@ -1,8 +1,12 @@
 import React from 'react';
-import { reviews } from '../../mocks/reviews';
 import Review from '../review/review';
+import { ReviewType } from '../../types/review';
 
-const ReviewsList: React.FC = () => (
+interface ReviewsListProps{
+  reviews: ReviewType[]
+}
+
+const ReviewsList: React.FC<ReviewsListProps> = ({reviews}) => (
   <section className='reviews'>
     <h2 className='reviews__title'>
       Reviews &middot; <span className='reviews__amount'>{reviews.length}</span>

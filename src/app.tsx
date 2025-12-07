@@ -9,7 +9,6 @@ import Offer from './pages/offer/offer';
 import NotFoundPage from './pages/not-found-page/not-found-page';
 import PrivateRoute from './components/private-route/private-route';
 import { Spinner } from './components/spinner/spinner';
-import { AuthorizationStatus } from './const';
 import { useSelector } from 'react-redux';
 import { RootState } from './store';
 
@@ -39,13 +38,13 @@ const App: React.FC = () => {
           <Route
             path={AppRoute.Favorites}
             element={
-              <PrivateRoute authorizationStatus={AuthorizationStatus.Auth}>
+              <PrivateRoute>
                 <Favorites />
               </PrivateRoute>
             }
           />
           <Route
-            path={`${AppRoute.Offer}/:id`}
+            path={`${AppRoute.Offer}/:offerId`}
             element={<Offer />}
           />
           <Route

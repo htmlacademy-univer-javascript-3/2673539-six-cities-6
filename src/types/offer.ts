@@ -22,6 +22,11 @@ export type OfferType = Omit<OfferCardType, 'previewImage'> & {
   maxAdults: number;
 };
 
+export type OfferInMap = {
+  id: string;
+  location: LocationType;
+}
+
 export type LocationType = {
   latitude: number;
   longitude: number;

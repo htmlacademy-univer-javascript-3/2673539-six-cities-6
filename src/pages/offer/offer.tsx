@@ -1,24 +1,65 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
+
 import Header from '../../components/header/header';
 import YourReviewForm from '../../components/your-review-form/your-review-form';
 import ReviewsList from '../../components/reviews-list/reviews-list';
-import { oneOffer } from '../../mocks/one-offer';
 import Map from '../../components/map/map';
-import { nearOffersMock } from '../../mocks/near-offers';
 import NearOffersList from '../../components/nearby-offers-list/near-offers-list';
 
-const IsLogged = true;
+import { AppDispatch, RootState } from '../../store';
+import {
+  fetchDetailedOfferAction,
+  fetchNearbyOffersAction,
+  fetchCommentsAction
+} from '../../store/actions/api-actions';
+
 
 const Offer: React.FC = () => {
-  const offer = oneOffer;
+  const dispatch = useDispatch<AppDispatch>();
+
+  // 1. Достаём ID из URL
+  const { offerId } = useParams<{ offerId: string }>();
+
+  // 2. Берём данные из Redux
+  const offer = useSelector((state: RootState) => state.offer);
+  const nearbyOffers = useSelector((state: RootState) => state.nearbyOffers);
+  const comments = useSelector((state: RootState) => state.comments);
+  const authorizationStatus = useSelector((state: RootState) => state.authorizationStatus);
+
+  const isLogged = authorizationStatus === 'AUTH';
+
+  // 3. Запрашиваем данные при заходе на страницу
+  useEffect(() => {
+    if (offerId) {
+      dispatch(fetchDetailedOfferAction(offerId));
+      dispatch(fetchNearbyOffersAction(offerId));
+      dispatch(fetchCommentsAction(offerId));
+    }
+  }, [dispatch, offerId]);
+
+
+  // ➤ Если offer не найден (API вернул 404)
+  if (!offer) {
+    return (
+      <div className="page">
+        <Header />
+        <main className="page__main page__main--offer">
+          <h2 style={{ padding: 40 }}>Offer not found</h2>
+        </main>
+      </div>
+    );
+  }
 
   return (
     <div className="page">
-      <Header userEmail='Oliver.conner@gmail.com' favoriteCount={3} isLoggedIn />
+      <Header />
 
       <main className="page__main page__main--offer">
         <section className="offer">
 
+          {/* Галерея */}
           <div className="offer__gallery-container container">
             <div className="offer__gallery">
               {offer.images.map((image) => (
@@ -31,10 +72,9 @@ const Offer: React.FC = () => {
 
           <div className="offer__container container">
             <div className="offer__wrapper">
+
               {offer.isPremium && (
-                <div className="offer__mark">
-                  <span>Premium</span>
-                </div>
+                <div className="offer__mark"><span>Premium</span></div>
               )}
 
               <div className="offer__name-wrapper">
@@ -56,24 +96,20 @@ const Offer: React.FC = () => {
               </div>
 
               <ul className="offer__features">
-                <li className="offer__feature offer__feature--entire">
-                  {offer.type}
-                </li>
-                <li className="offer__feature offer__feature--bedrooms">
-                  {offer.bedrooms} Bedrooms
-                </li>
+                <li className="offer__feature offer__feature--entire">{offer.type}</li>
+                <li className="offer__feature offer__feature--bedrooms">{offer.bedrooms} Bedrooms</li>
                 <li className="offer__feature offer__feature--adults">
                   Max {offer.maxAdults} adult{offer.maxAdults > 1 ? 's' : ''}
                 </li>
               </ul>
 
               <div className="offer__price">
-                <b className="offer__price-value">&euro;{offer.price}</b>
-                <span className="offer__price-text">&nbsp;night</span>
+                <b className="offer__price-value">€{offer.price}</b>
+                <span className="offer__price-text"> night</span>
               </div>
 
               <div className="offer__inside">
-                <h2 className="offer__inside-title">What&apos;s inside</h2>
+                <h2 className="offer__inside-title">What's inside</h2>
                 <ul className="offer__inside-list">
                   {offer.goods.map((item) => (
                     <li key={item} className="offer__inside-item">{item}</li>
@@ -81,8 +117,10 @@ const Offer: React.FC = () => {
                 </ul>
               </div>
 
+              {/* Хост */}
               <div className="offer__host">
                 <h2 className="offer__host-title">Meet the host</h2>
+
                 <div className="offer__host-user user">
                   <div className={`offer__avatar-wrapper user__avatar-wrapper ${offer.host.isPro ? 'offer__avatar-wrapper--pro' : ''}`}>
                     <img
@@ -102,20 +140,29 @@ const Offer: React.FC = () => {
                 </div>
               </div>
 
+              {/* Отзывы */}
               <section className="offer__reviews reviews">
-                <ReviewsList />
-                {IsLogged && <YourReviewForm />}
+                <ReviewsList reviews={comments} />
+                {isLogged && <YourReviewForm />}
+                {/* {isLogged && <YourReviewForm offerId={offer.id.toString()} />} */}
               </section>
+
             </div>
           </div>
 
+          {/* Карта */}
           <section className="offer__map map">
-            <Map city={nearOffersMock[0].city} offers={nearOffersMock} currentOffer={undefined}></Map>
+            <Map
+              city={offer.city}
+              offers={nearbyOffers}
+              currentOffer={offer}
+            />
           </section>
         </section>
 
+        {/* Блок похожих предложений */}
         <div className="container">
-          <NearOffersList offers={nearOffersMock}></NearOffersList>
+          <NearOffersList offers={nearbyOffers} />
         </div>
       </main>
     </div>
