@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
@@ -12,13 +12,15 @@ import { AppDispatch, RootState } from '../../store';
 import {
   fetchDetailedOfferAction,
   fetchNearbyOffersAction,
-  fetchCommentsAction
+  fetchCommentsAction,
+  changeFavoriteAction
 } from '../../store/api-actions';
-
+import { useNavigate } from 'react-router-dom';
+import { AppRoute, AuthorizationStatus } from '../../const';
 
 const Offer: React.FC = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch<AppDispatch>();
-
   const { offerId } = useParams<{ offerId: string }>();
 
   const offer = useSelector((state: RootState) => state.detailedOfferState.offer);
@@ -26,7 +28,7 @@ const Offer: React.FC = () => {
   const comments = useSelector((state: RootState) => state.commentsState.comments);
   const authorizationStatus = useSelector((state: RootState) => state.userState.authorizationStatus);
 
-  const isLogged = authorizationStatus === 'AUTH';
+  const isLogged = authorizationStatus === AuthorizationStatus.Auth;
 
   useEffect(() => {
     if (offerId) {
@@ -36,6 +38,17 @@ const Offer: React.FC = () => {
     }
   }, [dispatch, offerId]);
 
+  const handleFavoriteClick = useCallback(() => {
+    if (!offer) return;
+
+    if (authorizationStatus !== AuthorizationStatus.Auth) {
+      navigate(AppRoute.Login);
+      return;
+    }
+
+    const newStatus = offer.isFavorite ? 0 : 1;
+    dispatch(changeFavoriteAction({ offerId: offer.id, status: newStatus }));
+  }, [authorizationStatus, dispatch, offer]);
 
   if (!offer) {
     return (
@@ -51,10 +64,8 @@ const Offer: React.FC = () => {
   return (
     <div className="page">
       <Header />
-
       <main className="page__main page__main--offer">
         <section className="offer">
-
           <div className="offer__gallery-container container">
             <div className="offer__gallery">
               {offer.images.map((image) => (
@@ -67,18 +78,23 @@ const Offer: React.FC = () => {
 
           <div className="offer__container container">
             <div className="offer__wrapper">
-
-              {offer.isPremium && (
-                <div className="offer__mark"><span>Premium</span></div>
-              )}
+              {offer.isPremium && <div className="offer__mark"><span>Premium</span></div>}
 
               <div className="offer__name-wrapper">
                 <h1 className="offer__name">{offer.title}</h1>
-                <button className="offer__bookmark-button button" type="button">
+                <button
+                  className={`offer__bookmark-button button ${
+                    offer.isFavorite ? 'offer__bookmark-button--active' : ''
+                  }`}
+                  type="button"
+                  onClick={handleFavoriteClick}
+                >
                   <svg className="offer__bookmark-icon" width="31" height="33">
                     <use xlinkHref="#icon-bookmark" />
                   </svg>
-                  <span className="visually-hidden">To bookmarks</span>
+                  <span className="visually-hidden">
+                    {offer.isFavorite ? 'In bookmarks' : 'To bookmarks'}
+                  </span>
                 </button>
               </div>
 
@@ -114,21 +130,17 @@ const Offer: React.FC = () => {
 
               <div className="offer__host">
                 <h2 className="offer__host-title">Meet the host</h2>
-
-                <div className="offer__host-user user">
-                  <div className={`offer__avatar-wrapper user__avatar-wrapper ${offer.host.isPro ? 'offer__avatar-wrapper--pro' : ''}`}>
-                    <img
-                      className="offer__avatar user__avatar"
-                      src={offer.host.avatarUrl}
-                      width="74"
-                      height="74"
-                      alt="Host avatar"
-                    />
-                  </div>
-                  <span className="offer__user-name">{offer.host.name}</span>
-                  {offer.host.isPro && <span className="offer__user-status">Pro</span>}
+                <div className={`offer__avatar-wrapper user__avatar-wrapper ${offer.host.isPro ? 'offer__avatar-wrapper--pro' : ''}`}>
+                  <img
+                    className="offer__avatar user__avatar"
+                    src={offer.host.avatarUrl}
+                    width="74"
+                    height="74"
+                    alt="Host avatar"
+                  />
                 </div>
-
+                <span className="offer__user-name">{offer.host.name}</span>
+                {offer.host.isPro && <span className="offer__user-status">Pro</span>}
                 <div className="offer__description">
                   <p className="offer__text">{offer.description}</p>
                 </div>
@@ -138,16 +150,11 @@ const Offer: React.FC = () => {
                 <ReviewsList reviews={comments} />
                 {isLogged && <YourReviewForm offerId={offer.id} />}
               </section>
-
             </div>
           </div>
 
           <section className="offer__map map">
-            <Map
-              city={offer.city}
-              offers={[offer, ...nearbyOffers]}
-              currentOffer={offer}
-            />
+            <Map city={offer.city} offers={[offer, ...nearbyOffers]} currentOffer={offer} />
           </section>
         </section>
 

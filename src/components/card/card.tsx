@@ -2,7 +2,7 @@ import React, { useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { AppRoute, AuthorizationStatus } from '../../const';
 import { changeFavoriteAction } from '../../store/api-actions';
-import redirectToRoute from '../../store/redirect-action-placeholder';
+import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch } from '../../store';
 import { RootState } from '../../store';
@@ -21,12 +21,13 @@ const Card: React.FC<CardProps> = ({
   onMouseEnter,
   onMouseLeave,
 }) => {
+  const navigate = useNavigate();
   const dispatch = useDispatch<AppDispatch>();
   const authorizationStatus = useSelector(((state: RootState) => state.userState.authorizationStatus));
 
   const handleFavoriteClick = useCallback(() => {
     if (authorizationStatus !== AuthorizationStatus.Auth) {
-      dispatch(redirectToRoute(AppRoute.Login));
+      navigate(AppRoute.Login);
       return;
     }
     const newStatus = offer.isFavorite ? 0 : 1;
