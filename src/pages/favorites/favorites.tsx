@@ -7,12 +7,12 @@ import { useSelector } from 'react-redux';
 import { RootState } from '../../store';
 import { useDispatch } from 'react-redux';
 import { AppDispatch } from '../../store';
-import { fetchFavoriteOffersAction } from '../../store/actions/api-actions';
+import { fetchFavoriteOffersAction } from '../../store/api-actions';
 
 const Favorites: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
 
-  const favoriteOffers = useSelector((state: RootState) => state.favoriteOffers);
+  const favoriteOffers = useSelector((state: RootState) => state.userState.favoriteOffers);
 
   useEffect(() => {
     dispatch(fetchFavoriteOffersAction());

@@ -2,7 +2,7 @@ import React from 'react';
 import { CitiesEnum } from '../../const';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../../store';
-import { changeCity } from '../../store/actions/action';
+import { changeCity } from '../../store/reducers/city-slice';
 import { SixCities } from '../../const';
 import { AppDispatch } from '../../store';
 
@@ -10,7 +10,7 @@ const cityList = Object.values(CitiesEnum);
 
 const CitiesTabs: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const currentCity = useSelector((state: RootState) => state.city);
+  const currentCity = useSelector((state: RootState) => state.cityState.city);
 
   const handleCityClick = (cityName: CitiesEnum) => {
     const newCity = SixCities.find((city) => city.name === cityName);

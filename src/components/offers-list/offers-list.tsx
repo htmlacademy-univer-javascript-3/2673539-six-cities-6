@@ -25,17 +25,10 @@ const OffersList: React.FC<OffersListProps> = ({ offers, currentCity, onActiveOf
           .filter((offer) => offer.city.name === currentCity)
           .map((offer) => (
             <Card
+              key={offer.id}
               onMouseEnter={() => handleCardMouseEnter(offer.id)}
               onMouseLeave={handleCardMouseLeave}
-              key={offer.id}
-              id={offer.id}
-              isPremium={offer.isPremium}
-              imageUrl={offer.previewImage}
-              price={offer.price}
-              rating={offer.rating}
-              type={offer.type}
-              title={offer.title}
-              isFavorite={offer.isFavorite}
+              offer={offer}
             />
           ))}
     </div>

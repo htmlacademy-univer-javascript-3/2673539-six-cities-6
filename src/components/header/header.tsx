@@ -3,16 +3,16 @@ import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../../store';
 import { AuthorizationStatus } from '../../const';
 import { Link, useNavigate } from 'react-router-dom';
-import { logoutAction } from '../../store/actions/api-actions';
+import { logoutAction } from '../../store/api-actions';
 import { AppDispatch } from '../../store';
 
 const Header: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
   const navigate = useNavigate();
 
-  const authorizationStatus = useSelector((state: RootState) => state.authorizationStatus);
-  const userData = useSelector((state: RootState) => state.userData);
-  const favoriteOffers = useSelector((state: RootState) => state.favoriteOffers);
+  const authorizationStatus = useSelector((state: RootState) => state.userState.authorizationStatus);
+  const userData = useSelector((state: RootState) => state.userState.userData);
+  const favoriteOffers = useSelector((state: RootState) => state.userState.favoriteOffers);
 
   const handleSignOut = async () => {
     await dispatch(logoutAction());

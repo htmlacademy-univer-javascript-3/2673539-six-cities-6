@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import App from './app';
 import { Provider } from 'react-redux';
 import { store } from './store';
-import { fetchOffersAction } from './store/actions/api-actions';
+import { fetchOffersAction } from './store/api-actions';
 import { PersistGate } from 'redux-persist/integration/react'
 import { Spinner } from './components/spinner/spinner';
 import { persistor } from './store';

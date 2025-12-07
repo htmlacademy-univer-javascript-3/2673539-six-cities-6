@@ -1,26 +1,37 @@
-import { configureStore } from '@reduxjs/toolkit';
-import { reducer } from './reducers/reducer';
+import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { createAPI } from '../services/api';
-
 import storage from 'redux-persist/lib/storage';
 import { persistReducer, persistStore } from 'redux-persist';
+import { FLUSH, PAUSE, PERSIST, PURGE, REGISTER, REHYDRATE } from 'redux-persist';
+
+import cityReducer from './reducers/city-slice';
+import offersReducer from './reducers/offers-slice';
+import userReducer from './reducers/user-slice';
+import detailedOfferReducer from './reducers/detailed-offer-slice';
+import commentsReducer from './reducers/comments-slice';
 
 export const api = createAPI();
 
 const persistConfig = {
   key: 'six-cities',
   storage,
-  whitelist: [
-    'authorizationStatus',
-    'userData',
-    'favoriteOffers',
-    'city'
-  ],
+  whitelist: ['user', 'city'],
 };
 
-const persistedReducer = persistReducer(persistConfig, reducer);
+const rootReducer = combineReducers({
+  cityState: cityReducer,
+  offersState: offersReducer,
+  userState: userReducer,
+  detailedOfferState: detailedOfferReducer,
+  commentsState: commentsReducer,
+});
 
-export const store = configureStore({
+export type RootState = ReturnType<typeof rootReducer>;
+export type AppDispatch = typeof storeDispatchPlaceholder;
+
+const persistedReducer = persistReducer<any, any>(persistConfig, rootReducer);
+
+const store = configureStore({
   reducer: persistedReducer,
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
@@ -28,19 +39,15 @@ export const store = configureStore({
         extraArgument: api,
       },
       serializableCheck: {
-        ignoredActions: [
-          'persist/PERSIST',
-          'persist/REHYDRATE',
-          'persist/FLUSH',
-          'persist/PAUSE',
-          'persist/PURGE',
-          'persist/REGISTER',
-        ],
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
     }),
 });
 
+export type AppStore = typeof store;
+export type AppThunkDispatch = typeof store.dispatch;
+
 export const persistor = persistStore(store);
 
-export type RootState = ReturnType<typeof store.getState>;
-export type AppDispatch = typeof store.dispatch;
+export { store };
+export const storeDispatchPlaceholder = store.dispatch;
