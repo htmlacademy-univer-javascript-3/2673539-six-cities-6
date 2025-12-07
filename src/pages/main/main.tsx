@@ -1,10 +1,10 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState } from 'react';
 import Header from '../../components/header/header';
 import CitiesTabs from '../../components/cities-tabs/cities-tabs';
 import EmptyMain from '../../components/empty-main/empty-main';
 import OffersList from '../../components/offers-list/offers-list';
 import Map from '../../components/map/map';
-import { PlacesOptions } from '../../types/places-options';
+import SortingOptions from '../../components/sorting-options/sorting-options';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store';
 
@@ -16,29 +16,8 @@ const Main: React.FC = () => {
   );
 
   const [activeOfferId, setActiveOfferId] = useState<string | null>(null);
-  const [selectedOption, setSelectedOption] = useState<PlacesOptions>(PlacesOptions.Popular);
-  const [isSortingOpen, setIsSortingOpen] = useState<boolean>(false);
 
-  const sortedOffers = useMemo(() => {
-    const offersCopy = [...offers];
-    switch (selectedOption) {
-      case PlacesOptions.LowToHigh:
-        return offersCopy.sort((a, b) => a.price - b.price);
-      case PlacesOptions.HighToLow:
-        return offersCopy.sort((a, b) => b.price - a.price);
-      case PlacesOptions.TopRated:
-        return offersCopy.sort((a, b) => b.rating - a.rating);
-      default:
-        return offersCopy;
-    }
-  }, [offers, selectedOption]);
-
-  const mainIsEmpty = sortedOffers.length === 0;
-
-  const handleOptionClick = (option: PlacesOptions) => {
-    setSelectedOption(option);
-    setIsSortingOpen(false);
-  };
+  const mainIsEmpty = offers.length === 0;
 
   return (
     <div className="page page--gray page--main">
@@ -55,42 +34,13 @@ const Main: React.FC = () => {
               <section className="cities__places places">
                 <h2 className="visually-hidden">Places</h2>
                 <b className="places__found">
-                  {sortedOffers.length} places to stay in {city.name}
+                  {offers.length} places to stay in {city.name}
                 </b>
 
-                <form className="places__sorting" action="#" method="get">
-                  <span className="places__sorting-caption" style={{ marginRight: '10px' }}>
-                    Sort by
-                  </span>
-                  <span
-                    className="places__sorting-type"
-                    tabIndex={0}
-                    onClick={() => setIsSortingOpen((prev) => !prev)}
-                  >
-                    {selectedOption}
-                    <svg className="places__sorting-arrow" width="7" height="4">
-                      <use xlinkHref="#icon-arrow-select"></use>
-                    </svg>
-                  </span>
-
-                  <ul
-                    className={`places__options places__options--custom ${isSortingOpen ? 'places__options--opened' : ''}`}
-                  >
-                    {Object.values(PlacesOptions).map((option) => (
-                      <li
-                        key={option}
-                        className={`places__option ${option === selectedOption ? 'places__option--active' : ''}`}
-                        tabIndex={0}
-                        onClick={() => handleOptionClick(option)}
-                      >
-                        {option}
-                      </li>
-                    ))}
-                  </ul>
-                </form>
+                <SortingOptions offers={offers}></SortingOptions>
 
                 <OffersList
-                  offers={sortedOffers}
+                  offers={offers}
                   currentCity={city.name}
                   onActiveOfferChange={setActiveOfferId}
                 />
@@ -99,10 +49,10 @@ const Main: React.FC = () => {
               <div className="cities__right-section">
                 <section style={{ width: '100%' }}>
                   <Map
-                    city={sortedOffers[0].city}
-                    offers={sortedOffers}
+                    city={offers[0].city}
+                    offers={offers}
                     currentOffer={
-                      sortedOffers.find((offer) => offer.id === activeOfferId) ?? undefined
+                      offers.find((offer) => offer.id === activeOfferId) ?? undefined
                     }
                   />
                 </section>
