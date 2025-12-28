@@ -50,7 +50,7 @@ const Offer: React.FC = () => {
 
     const newStatus = offer.isFavorite ? 0 : 1;
     dispatch(changeFavoriteAction({ offerId: offer.id, status: newStatus }));
-  }, [authorizationStatus, dispatch, offer]);
+  }, [authorizationStatus, dispatch, offer, navigate]);
 
   if (!offer) {
     return (
@@ -122,7 +122,7 @@ const Offer: React.FC = () => {
               </div>
 
               <div className="offer__inside">
-                <h2 className="offer__inside-title">What's inside</h2>
+                <h2 className="offer__inside-title">What&apos;s inside</h2>
                 <ul className="offer__inside-list">
                   {offer.goods.map((item) => (
                     <li key={item} className="offer__inside-item">{item}</li>

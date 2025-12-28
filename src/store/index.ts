@@ -31,7 +31,8 @@ const rootReducer = combineReducers({
 export type RootState = ReturnType<typeof rootReducer>;
 export type AppDispatch = ThunkDispatch<RootState, typeof api, AnyAction>;
 
-const persistedReducer = persistReducer<any, any>(persistConfig, rootReducer);
+const persistedReducer = persistReducer(persistConfig, rootReducer);
+
 
 const store = configureStore({
   reducer: persistedReducer,

@@ -10,6 +10,7 @@ import { RootState } from '../../store';
 import { SixCities } from '../../const';
 import { PlacesOptions } from '../../types/places-options';
 
+
 const Main: React.FC = () => {
   const currentCity =
     useSelector((state: RootState) => state.cityState.city) ?? SixCities[0];
@@ -91,4 +92,6 @@ const Main: React.FC = () => {
   );
 };
 
-export default React.memo(Main);
+const MainMemo = React.memo(Main);
+
+export default MainMemo;

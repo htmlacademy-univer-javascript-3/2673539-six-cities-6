@@ -44,7 +44,6 @@ const userSlice = createSlice({
       const { offerId, isFavorite } = action.payload;
       if (!isFavorite) {
         state.favoriteOffers = state.favoriteOffers.filter((o) => o.id !== offerId);
-      } else {
       }
     },
   },
