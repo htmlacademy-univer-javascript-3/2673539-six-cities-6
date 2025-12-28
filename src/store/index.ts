@@ -3,12 +3,14 @@ import { createAPI } from '../services/api';
 import storage from 'redux-persist/lib/storage';
 import { persistReducer, persistStore } from 'redux-persist';
 import { FLUSH, PAUSE, PERSIST, PURGE, REGISTER, REHYDRATE } from 'redux-persist';
-
+import { ThunkDispatch } from '@reduxjs/toolkit';
+import { AnyAction } from 'redux';
 import cityReducer from './reducers/city-slice';
 import offersReducer from './reducers/offers-slice';
 import userReducer from './reducers/user-slice';
 import detailedOfferReducer from './reducers/detailed-offer-slice';
 import commentsReducer from './reducers/comments-slice';
+
 
 export const api = createAPI();
 
@@ -27,7 +29,7 @@ const rootReducer = combineReducers({
 });
 
 export type RootState = ReturnType<typeof rootReducer>;
-export type AppDispatch = typeof storeDispatchPlaceholder;
+export type AppDispatch = ThunkDispatch<RootState, typeof api, AnyAction>;
 
 const persistedReducer = persistReducer<any, any>(persistConfig, rootReducer);
 

@@ -6,7 +6,7 @@ interface SortingOptionsProps {
   onChange: (option: PlacesOptions) => void;
 }
 
-const SortingOptions: React.FC<SortingOptionsProps> = React.memo(({ selected, onChange }) => {
+const SortingOptionsComponent: React.FC<SortingOptionsProps> = ({ selected, onChange }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleClick = useCallback(
@@ -46,6 +46,9 @@ const SortingOptions: React.FC<SortingOptionsProps> = React.memo(({ selected, on
       </ul>
     </form>
   );
-});
+};
+
+const SortingOptions = React.memo(SortingOptionsComponent);
+SortingOptions.displayName = 'SortingOptions';
 
 export default SortingOptions;

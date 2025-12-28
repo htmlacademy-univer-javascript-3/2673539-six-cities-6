@@ -31,7 +31,6 @@ const FavoritesList: React.FC<FavoritesListProps> = ({ offers }) => {
             </div>
           </div>
           <div className="favorites__places">
-            
             {cityOffers.map((offer) => (
               <Card
                 key={offer.id}

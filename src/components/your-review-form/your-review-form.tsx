@@ -56,13 +56,14 @@ const YourReviewForm: React.FC<YourReviewFormProps> = ({ offerId }) => {
         setReviewText('');
         setIsSubmitDisabled(true);
       } catch (error) {
-        alert(`Ошибка отправки комментария: ${error}`);
+        alert('Ошибка отправки комментария');
       } finally {
         setIsSending(false);
       }
     },
     [rating, reviewText, dispatch, offerId]
   );
+
 
   return (
     <form className="reviews__form form" onSubmit={handleSubmit}>

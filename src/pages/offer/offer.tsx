@@ -39,7 +39,9 @@ const Offer: React.FC = () => {
   }, [dispatch, offerId]);
 
   const handleFavoriteClick = useCallback(() => {
-    if (!offer) return;
+    if (!offer) {
+      return;
+    }
 
     if (authorizationStatus !== AuthorizationStatus.Auth) {
       navigate(AppRoute.Login);

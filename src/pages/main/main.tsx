@@ -19,9 +19,7 @@ const Main: React.FC = () => {
   const [activeOfferId, setActiveOfferId] = useState<string | null>(null);
   const [sortOption, setSortOption] = useState<PlacesOptions>(PlacesOptions.Popular);
 
-  const filteredOffers = useMemo(() => {
-    return allOffers.filter((offer) => offer.city.name === currentCity.name);
-  }, [allOffers, currentCity.name]);
+  const filteredOffers = useMemo(() => allOffers.filter((offer) => offer.city.name === currentCity.name), [allOffers, currentCity.name]);
 
   const sortedOffers = useMemo(() => {
     const copy = [...filteredOffers];

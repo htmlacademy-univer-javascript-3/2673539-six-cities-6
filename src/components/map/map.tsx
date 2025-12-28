@@ -1,8 +1,8 @@
 import React, { useRef, useEffect, useMemo } from 'react';
-import { Icon, Marker, layerGroup, LayerGroup } from 'leaflet';
+import { Marker, layerGroup, LayerGroup } from 'leaflet';
 import { CityType, OfferInMap } from '../../types/offer';
-import { URL_MARKER_DEFAULT, URL_MARKER_CURRENT } from '../../const';
 import useMap from '../../hooks/use-map/use-map';
+import { defaultCustomIcon, currentCustomIcon } from './map-icons';
 import 'leaflet/dist/leaflet.css';
 
 type MapProps = {
@@ -10,18 +10,6 @@ type MapProps = {
   offers: OfferInMap[];
   currentOffer: OfferInMap | undefined;
 };
-
-const defaultCustomIcon = new Icon({
-  iconUrl: URL_MARKER_DEFAULT,
-  iconSize: [40, 40],
-  iconAnchor: [20, 40],
-});
-
-const currentCustomIcon = new Icon({
-  iconUrl: URL_MARKER_CURRENT,
-  iconSize: [40, 40],
-  iconAnchor: [20, 40],
-});
 
 const MapComponent: React.FC<MapProps> = ({ city, offers, currentOffer }) => {
   const mapRef = useRef<HTMLDivElement>(null);
@@ -59,7 +47,9 @@ const MapComponent: React.FC<MapProps> = ({ city, offers, currentOffer }) => {
   }, [map, cityPosition]);
 
   useEffect(() => {
-    if (!map) return;
+    if (!map) {
+      return;
+    }
 
     if (!markerLayerRef.current) {
       markerLayerRef.current = layerGroup().addTo(map);
@@ -85,4 +75,5 @@ const MapComponent: React.FC<MapProps> = ({ city, offers, currentOffer }) => {
   return <div style={{ height: '100%', width: '100%' }} ref={mapRef}></div>;
 };
 
-export default React.memo(MapComponent);
+const MemoizedMapComponent = React.memo(MapComponent);
+export default MemoizedMapComponent;
