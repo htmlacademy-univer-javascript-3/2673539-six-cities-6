@@ -1,12 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import Header from '../../components/header/header';
 import { AppDispatch, RootState } from '../../store';
 import { loginAction } from '../../store/api-actions';
 import { useSelector, useDispatch } from 'react-redux';
 import { AuthorizationStatus } from '../../const';
 import { useNavigate } from 'react-router-dom';
+import { SixCities } from '../../const';
+import { Link } from 'react-router-dom';
+import { changeCity } from '../../store/reducers/city-slice';
+import { validateEmail, validatePassword } from './validate-form';
+
 
 const Login: React.FC = () => {
+  const randomCity = useMemo(() => {
+    const cities = Object.values(SixCities);
+    return cities[Math.floor(Math.random() * cities.length)];
+  }, []);
+
   const dispatch = useDispatch<AppDispatch>();
   const navigate = useNavigate();
 
@@ -18,22 +28,6 @@ const Login: React.FC = () => {
 
   const authorizationStatus = useSelector((state: RootState) => state.userState.authorizationStatus);
 
-  const validateEmail = (email: string) => {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!email) return 'Email is required';
-    if (!re.test(email)) return 'Invalid email format';
-    return '';
-  };
-
-  const validatePassword = (password: string) => {
-    if (!password) return 'Password is required';
-    if (password.length < 6) return 'Password must be at least 6 characters';
-    if (!/[A-Z]/.test(password)) return 'Password must contain at least one uppercase letter';
-    if (!/[a-z]/.test(password)) return 'Password must contain at least one lowercase letter';
-    if (!/[0-9]/.test(password)) return 'Password must contain at least one digit';
-    return '';
-  };
-
   const handleSubmit = (evt: React.FormEvent<HTMLFormElement>) => {
     evt.preventDefault(); //
 
@@ -43,7 +37,9 @@ const Login: React.FC = () => {
     setEmailError(emailErr);
     setPasswordError(passwordErr);
 
-    if (emailErr || passwordErr) return;
+    if (emailErr || passwordErr) {
+      return;
+    }
 
     dispatch(loginAction({ email, password }));
   };
@@ -93,11 +89,12 @@ const Login: React.FC = () => {
 
           <section className="locations locations--login locations--current">
             <div className="locations__item">
-              <a className="locations__item-link" href="#">
-                <span>Amsterdam</span>
-              </a>
+              <Link className="locations__item-link" to="/" onClick={() => dispatch(changeCity(randomCity))}>
+                <span>{randomCity.name}</span>
+              </Link>
             </div>
           </section>
+
         </div>
       </main>
     </div>

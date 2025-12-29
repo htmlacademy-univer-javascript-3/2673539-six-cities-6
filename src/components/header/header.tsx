@@ -49,8 +49,13 @@ const Header: React.FC = () => {
                       <span className="header__favorite-count">{favoriteOffers.length}</span>
                     </div>
                   </li>
-
-                  <li className="header__nav-item" onClick={handleSignOut} style={{ cursor: 'pointer' }}>
+                  <li
+                    className="header__nav-item"
+                    onClick={() => {
+                      void handleSignOut();
+                    }}
+                    style={{ cursor: 'pointer' }}
+                  >
                     <span className="header__nav-link">
                       <span className="header__signout">Sign out</span>
                     </span>

@@ -2,6 +2,7 @@ import React, { useState, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import { AppDispatch } from '../../store';
 import { postCommentAction } from '../../store/api-actions';
+import { toast } from 'react-toastify';
 
 interface YourReviewFormProps {
   offerId: string;
@@ -56,7 +57,7 @@ const YourReviewForm: React.FC<YourReviewFormProps> = ({ offerId }) => {
         setReviewText('');
         setIsSubmitDisabled(true);
       } catch (error) {
-        alert(`Ошибка отправки комментария: ${error}`);
+        toast.error('Не удалось отправить комментарий\nПопробуйте позже');
       } finally {
         setIsSending(false);
       }
@@ -64,8 +65,9 @@ const YourReviewForm: React.FC<YourReviewFormProps> = ({ offerId }) => {
     [rating, reviewText, dispatch, offerId]
   );
 
+
   return (
-    <form className="reviews__form form" onSubmit={handleSubmit}>
+    <form className="reviews__form form" onSubmit={() => handleSubmit}>
       <label className="reviews__label form__label" htmlFor="review">Your review</label>
 
       <fieldset disabled={isSending} className="reviews__rating-form form__rating">

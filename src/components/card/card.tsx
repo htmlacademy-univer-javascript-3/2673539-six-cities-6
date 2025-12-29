@@ -9,7 +9,7 @@ import { RootState } from '../../store';
 import { OfferCardType } from '../../types/offer';
 
 interface CardProps {
-  offer: OfferCardType
+  offer: OfferCardType;
   isFromFavoritePage?: boolean;
   onMouseEnter?: React.MouseEventHandler<HTMLElement>;
   onMouseLeave?: React.MouseEventHandler<HTMLElement>;
@@ -32,7 +32,7 @@ const Card: React.FC<CardProps> = ({
     }
     const newStatus = offer.isFavorite ? 0 : 1;
     dispatch(changeFavoriteAction({ offerId: offer.id, status: newStatus }));
-  }, [authorizationStatus, dispatch, offer.id, offer.isFavorite]);
+  }, [authorizationStatus, dispatch, offer.id, offer.isFavorite, navigate]);
 
   const wrapperClass = isFromFavoritePage
     ? 'favorites__card place-card'
@@ -80,9 +80,7 @@ const Card: React.FC<CardProps> = ({
             <span className="place-card__price-text">&#47;&nbsp;night</span>
           </div>
           <button
-            className={`place-card__bookmark-button button ${
-              offer.isFavorite ? 'place-card__bookmark-button--active' : ''
-            }`}
+            className={`place-card__bookmark-button button ${offer.isFavorite ? 'place-card__bookmark-button--active' : ''}`}
             type="button"
             onClick={handleFavoriteClick}
           >

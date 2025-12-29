@@ -10,6 +10,7 @@ import { RootState } from '../../store';
 import { SixCities } from '../../const';
 import { PlacesOptions } from '../../types/places-options';
 
+
 const Main: React.FC = () => {
   const currentCity =
     useSelector((state: RootState) => state.cityState.city) ?? SixCities[0];
@@ -19,9 +20,7 @@ const Main: React.FC = () => {
   const [activeOfferId, setActiveOfferId] = useState<string | null>(null);
   const [sortOption, setSortOption] = useState<PlacesOptions>(PlacesOptions.Popular);
 
-  const filteredOffers = useMemo(() => {
-    return allOffers.filter((offer) => offer.city.name === currentCity.name);
-  }, [allOffers, currentCity.name]);
+  const filteredOffers = useMemo(() => allOffers.filter((offer) => offer.city.name === currentCity.name), [allOffers, currentCity.name]);
 
   const sortedOffers = useMemo(() => {
     const copy = [...filteredOffers];
@@ -93,4 +92,6 @@ const Main: React.FC = () => {
   );
 };
 
-export default React.memo(Main);
+const MainMemo = React.memo(Main);
+
+export default MainMemo;

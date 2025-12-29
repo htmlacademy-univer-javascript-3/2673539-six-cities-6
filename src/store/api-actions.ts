@@ -30,6 +30,14 @@ export const fetchOffersAction = createAsyncThunk<
   }
 );
 
+export const fetchFavoriteOffersAction = createAsyncThunk<void, undefined, { dispatch: AppDispatch; state: RootState; extra: AxiosInstance }>(
+  'data/fetchFavoriteOffers',
+  async (_arg, { dispatch, extra: api }) => {
+    const { data } = await api.get<OfferCardType[]>(APIRoute.Favorite);
+    dispatch(setFavoriteOffers(data));
+  }
+);
+
 export const checkAuthAction = createAsyncThunk<void, undefined, { dispatch: AppDispatch; state: RootState; extra: AxiosInstance }>(
   'user/checkAuth',
   async (_arg, { dispatch, extra: api }) => {
@@ -60,6 +68,7 @@ export const loginAction = createAsyncThunk<void, AuthData, { dispatch: AppDispa
 export const logoutAction = createAsyncThunk<void, undefined, { dispatch: AppDispatch; state: RootState; extra: AxiosInstance }>(
   'user/logout',
   async (_arg, { dispatch, extra: api }) => {
+    // Не знаю почему, но иногда не работает этот эндпоинт, а иногда работает
     await api.delete(APIRoute.Logout);
     dropToken();
     dispatch(requireAuthorization(AuthorizationStatus.NoAuth));
@@ -98,14 +107,6 @@ export const postCommentAction = createAsyncThunk<void, { offerId: string; comme
   async ({ offerId, comment, rating }, { dispatch, extra: api }) => {
     const { data } = await api.post<ReviewType>(`${APIRoute.Comments}/${offerId}`, { comment, rating });
     dispatch(addComment(data));
-  }
-);
-
-export const fetchFavoriteOffersAction = createAsyncThunk<void, undefined, { dispatch: AppDispatch; state: RootState; extra: AxiosInstance }>(
-  'data/fetchFavoriteOffers',
-  async (_arg, { dispatch, extra: api }) => {
-    const { data } = await api.get<OfferCardType[]>(APIRoute.Favorite);
-    dispatch(setFavoriteOffers(data));
   }
 );
 

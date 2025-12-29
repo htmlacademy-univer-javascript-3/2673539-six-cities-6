@@ -3,7 +3,7 @@ import Review from '../review/review';
 import { ReviewType } from '../../types/review';
 
 interface ReviewsListProps{
-  reviews: ReviewType[]
+  reviews: ReviewType[];
 }
 
 const ReviewsList: React.FC<ReviewsListProps> = ({reviews}) => (
