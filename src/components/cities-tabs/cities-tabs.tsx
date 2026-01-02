@@ -29,15 +29,12 @@ const CitiesTabs: React.FC = () => {
                 key={city}
                 onClick={() => handleCityClick(city)}
               >
-                <a
-                  className={`locations__item-link tabs__item${
-                    city === currentCity.name ? ' tabs__item--active' : ''
-                  }`}
-                  href="#"
+                <button style={{ border: 'none', cursor: 'pointer', background: `${city === currentCity.name ? '' : 'none'}` }}
+                  className={`locations__item-link tabs__item${city === currentCity.name ? ' tabs__item--active' : ''}`}
                   onClick={(e) => e.preventDefault()}
                 >
                   <span>{city}</span>
-                </a>
+                </button>
               </li>
             ))}
           </ul>
