@@ -67,7 +67,7 @@ const YourReviewForm: React.FC<YourReviewFormProps> = ({ offerId }) => {
 
 
   return (
-    <form className="reviews__form form" onSubmit={() => handleSubmit}>
+    <form className="reviews__form form" onSubmit={(event) => handleSubmit(event)}>
       <label className="reviews__label form__label" htmlFor="review">Your review</label>
 
       <fieldset disabled={isSending} className="reviews__rating-form form__rating">
