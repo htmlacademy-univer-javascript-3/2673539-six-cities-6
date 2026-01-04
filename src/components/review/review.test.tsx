@@ -15,9 +15,9 @@ const createMockReview = (overrides?: Partial<ReviewType>): ReviewType => ({
   ...overrides,
 });
 
-const renderReview = (review: ReviewType) => {
-  return render(<Review review={review} />);
-};
+const renderReview = (review: ReviewType) => (
+  render(<Review review={review} />)
+);
 
 describe('Review Component', () => {
   test('renders review item with correct classes', () => {

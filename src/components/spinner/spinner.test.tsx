@@ -1,9 +1,7 @@
 import { render } from '@testing-library/react';
 import { Spinner } from './spinner';
 
-const renderSpinner = () => {
-  return render(<Spinner />);
-};
+const renderSpinner = () => render(<Spinner />);
 
 describe('Spinner Component', () => {
   test('renders spinner container with correct classes', () => {
@@ -25,7 +23,7 @@ describe('Spinner Component', () => {
 
     const spinnerContainer = container.querySelector('.spinner-container');
     const spinnerElement = container.querySelector('.spinner');
-    
+
     expect(spinnerContainer).toBeInTheDocument();
     expect(spinnerElement).toBeInTheDocument();
     expect(spinnerContainer?.contains(spinnerElement)).toBe(true);
@@ -52,10 +50,10 @@ describe('Spinner Component', () => {
 
   test('renders as a functional component', () => {
     const { container } = renderSpinner();
-    
+
     const spinnerContainer = container.querySelector('.spinner-container');
     expect(spinnerContainer).toBeInTheDocument();
-    
+
     const spinnerElement = container.querySelector('.spinner');
     expect(spinnerElement).toBeInTheDocument();
   });
@@ -66,7 +64,7 @@ describe('Spinner Component', () => {
     const buttons = container.querySelectorAll('button');
     const links = container.querySelectorAll('a');
     const inputs = container.querySelectorAll('input');
-    
+
     expect(buttons).toHaveLength(0);
     expect(links).toHaveLength(0);
     expect(inputs).toHaveLength(0);

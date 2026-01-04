@@ -4,10 +4,8 @@ import { PlacesOptions } from '../../types/places-options';
 
 const renderSortingOptions = (
   selected: PlacesOptions,
-  onChange: (option: PlacesOptions) => void = () => { }
-) => {
-  return render(<SortingOptions selected={selected} onChange={onChange} />);
-};
+  onChange: (option: PlacesOptions) => void = () => {}
+) => render(<SortingOptions selected={selected} onChange={onChange} />);
 
 describe('SortingOptions Component', () => {
   const mockPlacesOptions = [
@@ -53,7 +51,7 @@ describe('SortingOptions Component', () => {
 
     mockPlacesOptions.forEach((option) => {
       const optionElement = container.querySelector(`[data-testid="${option}"]`) ||
-        Array.from(optionElements).find(el => el.textContent === option);
+        Array.from(optionElements).find((el) => el.textContent === option);
       expect(optionElement).toBeInTheDocument();
     });
   });
@@ -97,7 +95,7 @@ describe('SortingOptions Component', () => {
     fireEvent.click(selectedOption!);
 
     const priceHighToLowOption = Array.from(container.querySelectorAll('.places__option'))
-      .find(el => el.textContent === PlacesOptions.HighToLow);
+      .find((el) => el.textContent === PlacesOptions.HighToLow);
     expect(priceHighToLowOption).toBeInTheDocument();
 
     fireEvent.click(priceHighToLowOption!);
@@ -127,7 +125,7 @@ describe('SortingOptions Component', () => {
     expect(selectedOption).toHaveAttribute('tabIndex', '0');
 
     const listOptions = container.querySelectorAll('.places__option');
-    listOptions.forEach(option => {
+    listOptions.forEach((option) => {
       expect(option).toHaveAttribute('tabIndex', '0');
     });
   });

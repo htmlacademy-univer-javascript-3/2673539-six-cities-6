@@ -15,9 +15,9 @@ const createMockReview = (id: string, overrides?: Partial<ReviewType>): ReviewTy
   ...overrides,
 });
 
-const renderReviewsList = (reviews: ReviewType[]) => {
-  return render(<ReviewsList reviews={reviews} />);
-};
+const renderReviewsList = (reviews: ReviewType[]) => (
+  render(<ReviewsList reviews={reviews} />)
+);
 
 describe('ReviewsList Component', () => {
   test('renders reviews section with correct classes', () => {

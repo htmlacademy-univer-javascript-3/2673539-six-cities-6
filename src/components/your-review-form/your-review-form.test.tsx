@@ -90,7 +90,7 @@ describe('YourReviewForm Component', () => {
 
     const ratingInput = container.querySelector('input[value="5"]');
     fireEvent.click(ratingInput!);
-    
+
     const textareaElement = container.querySelector('textarea');
     fireEvent.change(textareaElement!, { target: { value: 'This is a great place! I really enjoyed my stay here. The service was excellent and the location was perfect.' } });
 
@@ -101,10 +101,10 @@ describe('YourReviewForm Component', () => {
     const { container } = renderYourReviewForm();
 
     const submitButton = container.querySelector('button[type="submit"]');
-    
+
     const ratingInput = container.querySelector('input[value="4"]');
     fireEvent.click(ratingInput!);
-    
+
     const textareaElement = container.querySelector('textarea');
     fireEvent.change(textareaElement!, { target: { value: 'Nice place' } });
 
@@ -115,7 +115,7 @@ describe('YourReviewForm Component', () => {
     const { container } = renderYourReviewForm();
 
     const submitButton = container.querySelector('button[type="submit"]');
-    
+
     const textareaElement = container.querySelector('textarea');
     fireEvent.change(textareaElement!, { target: { value: 'This is a great place! I really enjoyed my stay here. The service was excellent and the location was perfect.' } });
 
@@ -136,7 +136,7 @@ describe('YourReviewForm Component', () => {
 
     const textareaElement = container.querySelector('textarea');
     const testText = 'This is my review of the place.';
-    
+
     fireEvent.change(textareaElement!, { target: { value: testText } });
     expect(textareaElement).toHaveValue(testText);
   });
@@ -149,11 +149,11 @@ describe('YourReviewForm Component', () => {
     expect(helpText?.textContent).toContain('To submit review please make sure to set');
     expect(helpText?.textContent).toContain('rating');
     expect(helpText?.textContent).toContain('50 characters');
-    
+
     const ratingSpan = container.querySelector('.reviews__star');
     expect(ratingSpan).toBeInTheDocument();
     expect(ratingSpan?.textContent).toBe('rating');
-    
+
     const charCount = container.querySelector('.reviews__text-amount');
     expect(charCount).toBeInTheDocument();
     expect(charCount?.textContent).toBe('50 characters');
@@ -164,8 +164,8 @@ describe('YourReviewForm Component', () => {
 
     const starSvgs = container.querySelectorAll('svg.form__star-image');
     expect(starSvgs).toHaveLength(5);
-    
-    starSvgs.forEach(svg => {
+
+    starSvgs.forEach((svg) => {
       expect(svg).toHaveAttribute('width', '37');
       expect(svg).toHaveAttribute('height', '33');
       expect(svg.querySelector('use')).toHaveAttribute('xlink:href', '#icon-star');
@@ -176,7 +176,7 @@ describe('YourReviewForm Component', () => {
     const { container } = renderYourReviewForm();
 
     const ratingInputs = container.querySelectorAll('input[name="rating"]');
-    ratingInputs.forEach(input => {
+    ratingInputs.forEach((input) => {
       expect(input).toHaveClass('visually-hidden');
     });
   });
@@ -231,10 +231,10 @@ describe('YourReviewForm Component', () => {
 
     const buttonWrapper = container.querySelector('.reviews__button-wrapper');
     expect(buttonWrapper).toBeInTheDocument();
-    
+
     const helpText = buttonWrapper?.querySelector('.reviews__help');
     expect(helpText).toBeInTheDocument();
-    
+
     const submitButton = buttonWrapper?.querySelector('button');
     expect(submitButton).toBeInTheDocument();
   });
