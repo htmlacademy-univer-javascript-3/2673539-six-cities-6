@@ -1,0 +1,215 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`OffersList Component > matches snapshot with empty offers 1`] = `
+<div>
+  <div
+    class="cities__places-list places__list tabs__content"
+  />
+</div>
+`;
+
+exports[`OffersList Component > matches snapshot with offers for current city 1`] = `
+<div>
+  <div
+    class="cities__places-list places__list tabs__content"
+  >
+    <article
+      class="cities__card place-card"
+    >
+      <div
+        class="cities__image-wrapper place-card__image-wrapper"
+      >
+        <a
+          href="/offer/a424a89c-4298-40b7-b919-701dc03aa17d"
+        >
+          <img
+            alt="Place image"
+            class="place-card__image"
+            height="200"
+            src="http://placeimg.com/640/480"
+            width="260"
+          />
+        </a>
+      </div>
+      <div
+        class="place-card__info"
+      >
+        <div
+          class="place-card__price-wrapper"
+        >
+          <div
+            class="place-card__price"
+          >
+            <b
+              class="place-card__price-value"
+            >
+              €
+              99
+            </b>
+            <span
+              class="place-card__price-text"
+            >
+              / night
+            </span>
+          </div>
+          <button
+            class="place-card__bookmark-button button "
+            type="button"
+          >
+            <svg
+              class="place-card__bookmark-icon"
+              height="19"
+              width="18"
+            >
+              <use
+                xlink:href="#icon-bookmark"
+              />
+            </svg>
+            <span
+              class="visually-hidden"
+            >
+              To bookmarks
+            </span>
+          </button>
+        </div>
+        <div
+          class="place-card__rating rating"
+        >
+          <div
+            class="place-card__stars rating__stars"
+          >
+            <span
+              style="width: 64%;"
+            />
+            <span
+              class="visually-hidden"
+            >
+              Rating
+            </span>
+          </div>
+        </div>
+        <h2
+          class="place-card__name"
+        >
+          <a
+            href="/offer/a424a89c-4298-40b7-b919-701dc03aa17d"
+          >
+            veritatis quod
+          </a>
+        </h2>
+        <p
+          class="place-card__type"
+        >
+          hotel
+        </p>
+      </div>
+    </article>
+    <article
+      class="cities__card place-card"
+    >
+      <div
+        class="place-card__mark"
+      >
+        <span>
+          Premium
+        </span>
+      </div>
+      <div
+        class="cities__image-wrapper place-card__image-wrapper"
+      >
+        <a
+          href="/offer/b8d5b268-4785-49b5-bee5-c26364d13816"
+        >
+          <img
+            alt="Place image"
+            class="place-card__image"
+            height="200"
+            src="http://placeimg.com/640/480"
+            width="260"
+          />
+        </a>
+      </div>
+      <div
+        class="place-card__info"
+      >
+        <div
+          class="place-card__price-wrapper"
+        >
+          <div
+            class="place-card__price"
+          >
+            <b
+              class="place-card__price-value"
+            >
+              €
+              435
+            </b>
+            <span
+              class="place-card__price-text"
+            >
+              / night
+            </span>
+          </div>
+          <button
+            class="place-card__bookmark-button button place-card__bookmark-button--active"
+            type="button"
+          >
+            <svg
+              class="place-card__bookmark-icon"
+              height="19"
+              width="18"
+            >
+              <use
+                xlink:href="#icon-bookmark"
+              />
+            </svg>
+            <span
+              class="visually-hidden"
+            >
+              In bookmarks
+            </span>
+          </button>
+        </div>
+        <div
+          class="place-card__rating rating"
+        >
+          <div
+            class="place-card__stars rating__stars"
+          >
+            <span
+              style="width: 80%;"
+            />
+            <span
+              class="visually-hidden"
+            >
+              Rating
+            </span>
+          </div>
+        </div>
+        <h2
+          class="place-card__name"
+        >
+          <a
+            href="/offer/b8d5b268-4785-49b5-bee5-c26364d13816"
+          >
+            omnis sunt
+          </a>
+        </h2>
+        <p
+          class="place-card__type"
+        >
+          apartment
+        </p>
+      </div>
+    </article>
+  </div>
+</div>
+`;
+
+exports[`OffersList Component > matches snapshot with offers for different city 1`] = `
+<div>
+  <div
+    class="cities__places-list places__list tabs__content"
+  />
+</div>
+`;
