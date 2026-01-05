@@ -44,7 +44,9 @@ const Header: React.FC = () => {
                     style={{ cursor: 'pointer' }}
                   >
                     <div className="header__nav-link header__nav-link--profile">
-                      <div className="header__avatar-wrapper user__avatar-wrapper"></div>
+                      <div className="header__avatar-wrapper user__avatar-wrapper">
+                        <img className="user__avatar" src={userData.avatarUrl} alt="avatar" />
+                      </div>
                       <span className="header__user-name user__name">{userData.email}</span>
                       <span className="header__favorite-count">{favoriteOffers.length}</span>
                     </div>

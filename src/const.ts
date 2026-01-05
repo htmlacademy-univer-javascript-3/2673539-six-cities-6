@@ -36,7 +36,6 @@ export const SixCities: CityType[] = Object.values(CitiesEnum).map(
     location: locations[cityName as CitiesEnum],
   })
 );
-// выглядит странно
 
 export const URL_MARKER_DEFAULT =
   'https://assets.htmlacademy.ru/content/intensive/javascript-1/demo/interactive-map/pin.svg';

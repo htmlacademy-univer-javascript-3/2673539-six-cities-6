@@ -25,9 +25,9 @@ const FavoritesList: React.FC<FavoritesListProps> = ({ offers }) => {
         <li className="favorites__locations-items" key={city}>
           <div className="favorites__locations locations locations--current">
             <div className="locations__item">
-              <a className="locations__item-link" href="#">
+              <h2 className="locations__item-link" >
                 <span>{city}</span>
-              </a>
+              </h2>
             </div>
           </div>
           <div className="favorites__places">
