@@ -1,0 +1,184 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Main Component > matches snapshot with no offers 1`] = `
+<div>
+  <div
+    class="page page--gray page--main"
+  >
+    <header
+      class="header"
+    >
+      <div
+        class="container"
+      >
+        <div
+          class="header__wrapper"
+        >
+          <div
+            class="header__left"
+          >
+            <a
+              class="header__logo-link"
+              href="/"
+            >
+              <img
+                alt="6 cities logo"
+                class="header__logo"
+                height="41"
+                src="img/logo.svg"
+                width="81"
+              />
+            </a>
+          </div>
+          <nav
+            class="header__nav"
+          >
+            <ul
+              class="header__nav-list"
+            >
+              <li
+                class="header__nav-item"
+              >
+                <a
+                  class="header__nav-link"
+                  href="/login"
+                >
+                  <span
+                    class="header__signout"
+                  >
+                    Sign in
+                  </span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <main
+      class="page__main page__main--index"
+    >
+      <div>
+        <h1
+          class="visually-hidden"
+        >
+          Cities
+        </h1>
+        <div
+          class="tabs"
+        >
+          <section
+            class="locations container"
+          >
+            <ul
+              class="locations__list tabs__list"
+            >
+              <li
+                class="locations__item"
+              >
+                <button
+                  class="locations__item-link tabs__item tabs__item--active"
+                  style="cursor: pointer;"
+                >
+                  <span>
+                    Paris
+                  </span>
+                </button>
+              </li>
+              <li
+                class="locations__item"
+              >
+                <button
+                  class="locations__item-link tabs__item"
+                  style="cursor: pointer; background: none;"
+                >
+                  <span>
+                    Cologne
+                  </span>
+                </button>
+              </li>
+              <li
+                class="locations__item"
+              >
+                <button
+                  class="locations__item-link tabs__item"
+                  style="cursor: pointer; background: none;"
+                >
+                  <span>
+                    Brussels
+                  </span>
+                </button>
+              </li>
+              <li
+                class="locations__item"
+              >
+                <button
+                  class="locations__item-link tabs__item"
+                  style="cursor: pointer; background: none;"
+                >
+                  <span>
+                    Amsterdam
+                  </span>
+                </button>
+              </li>
+              <li
+                class="locations__item"
+              >
+                <button
+                  class="locations__item-link tabs__item"
+                  style="cursor: pointer; background: none;"
+                >
+                  <span>
+                    Hamburg
+                  </span>
+                </button>
+              </li>
+              <li
+                class="locations__item"
+              >
+                <button
+                  class="locations__item-link tabs__item"
+                  style="cursor: pointer; background: none;"
+                >
+                  <span>
+                    Dusseldorf
+                  </span>
+                </button>
+              </li>
+            </ul>
+          </section>
+        </div>
+      </div>
+      <div
+        class="cities"
+      >
+        <div
+          class="cities__places-container cities__places-container--empty container"
+        >
+          <section
+            class="cities__no-places"
+          >
+            <div
+              class="cities__status-wrapper tabs__content"
+            >
+              <b
+                class="cities__status"
+              >
+                No places to stay available
+              </b>
+              <p
+                class="cities__status-description"
+              >
+                We could not find any property available at the moment in Dusseldorf
+              </p>
+            </div>
+          </section>
+          <div
+            class="cities__right-section"
+          />
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+`;
