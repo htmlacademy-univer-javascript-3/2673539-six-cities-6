@@ -42,7 +42,6 @@ describe('CitiesTabs Component', () => {
 
     renderWithStore(store, <CitiesTabs />);
 
-    // Проверяем, что отображаются все города
     const cityNames = ['Paris', 'Cologne', 'Brussels', 'Amsterdam', 'Hamburg', 'Dusseldorf'];
 
     cityNames.forEach((city) => {
@@ -55,13 +54,10 @@ describe('CitiesTabs Component', () => {
 
     renderWithStore(store, <CitiesTabs />);
 
-    // Находим текущий город
     const currentCityButton = screen.getByText('Paris').closest('button');
 
-    // Проверяем, что у текущего города есть класс активности
     expect(currentCityButton).toHaveClass('tabs__item--active');
 
-    // Проверяем, что другие города не имеют класса активности
     const otherCities = ['Cologne', 'Brussels', 'Amsterdam', 'Hamburg', 'Dusseldorf'];
     otherCities.forEach((city) => {
       const button = screen.getByText(city).closest('button');
@@ -74,21 +70,17 @@ describe('CitiesTabs Component', () => {
 
     renderWithStore(store, <CitiesTabs />);
 
-    // Нажимаем на город, который не является текущим
     const amsterdamButton = screen.getByText('Amsterdam');
     fireEvent.click(amsterdamButton);
 
-    // Получаем все actions из store
     const actions = store.getActions() as AnyAction[];
 
-    // Ищем action changeCity с правильными данными
     const changeCityAction = actions.find(
       (action: AnyAction) => action.type === changeCity.type
     );
 
     expect(changeCityAction).toBeDefined();
 
-    // Проверяем, что передан правильный город
     if (changeCityAction) {
       const cityData = SixCities.find((city) => city.name === CitiesEnum.Amsterdam);
       expect(changeCityAction.payload).toEqual(cityData);
@@ -102,10 +94,8 @@ describe('CitiesTabs Component', () => {
 
     const parisButton = screen.getByText('Paris').closest('button');
 
-    // Проверяем, что у активного города background стиль пустой (по умолчанию)
     expect(parisButton).toHaveStyle('background: ');
 
-    // Проверяем, что у неактивного города background: 'none'
     const amsterdamButton = screen.getByText('Amsterdam').closest('button');
     expect(amsterdamButton).toHaveStyle('background: none');
   });

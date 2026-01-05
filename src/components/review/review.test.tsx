@@ -56,7 +56,7 @@ describe('Review Component', () => {
 
     const ratingSpan = container.querySelector('.reviews__stars span');
     expect(ratingSpan).toBeInTheDocument();
-    expect(ratingSpan).toHaveStyle('width: 80%'); // 4/5 * 100% = 80%
+    expect(ratingSpan).toHaveStyle('width: 80%');
   });
 
   test('renders rating stars with 100% width for perfect rating', () => {

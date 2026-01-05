@@ -42,14 +42,12 @@ describe('User Reducer', () => {
   });
 
   test('should handle requireAuthorization action', () => {
-    // Test setting to Auth
     const actionAuth = requireAuthorization(AuthorizationStatus.Auth);
     let result = userReducer(initialState, actionAuth);
 
     expect(result.authorizationStatus).toBe(AuthorizationStatus.Auth);
     expect(result.userData).toBeUndefined();
 
-    // Test setting to NoAuth
     const actionNoAuth = requireAuthorization(AuthorizationStatus.NoAuth);
     result = userReducer(result, actionNoAuth);
 

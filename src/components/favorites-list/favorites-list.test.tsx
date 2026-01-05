@@ -60,11 +60,9 @@ describe('FavoritesList Component', () => {
     const store = createStore();
     const { container } = renderWithProviders(<FavoritesList offers={offers} />, store);
 
-    // Проверяем общее количество карточек
     const cards = container.querySelectorAll('.place-card');
     expect(cards).toHaveLength(3);
 
-    // Проверяем, что Paris имеет 2 карточки
     const parisSection = Array.from(container.querySelectorAll('.favorites__locations-items')).find(
       (item) => item.querySelector('h2')?.textContent === 'Paris'
     );

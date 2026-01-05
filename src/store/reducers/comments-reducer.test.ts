@@ -117,7 +117,6 @@ describe('Comments Reducer', () => {
   });
 
   test('should handle empty arrays correctly', () => {
-    // Test setting empty array
     const action = setComments([]);
     const result = commentsReducer(initialState, action);
 

@@ -5,11 +5,9 @@ describe('EmptyMain Component', () => {
   test('renders main container with correct structure', () => {
     const { container } = render(<EmptyMain />);
 
-    // Проверяем основной контейнер
     const citiesContainer = container.querySelector('.cities');
     expect(citiesContainer).toBeInTheDocument();
 
-    // Проверяем внутренний контейнер
     const placesContainer = citiesContainer?.querySelector('.cities__places-container');
     expect(placesContainer).toHaveClass(
       'cities__places-container',
@@ -21,24 +19,20 @@ describe('EmptyMain Component', () => {
   test('renders no-places section with content', () => {
     render(<EmptyMain />);
 
-    // Проверяем основной текст
     const statusText = screen.getByText('No places to stay available');
     expect(statusText).toBeInTheDocument();
     expect(statusText).toHaveClass('cities__status');
     expect(statusText.tagName).toBe('B');
 
-    // Проверяем описание
     const description = screen.getByText(
       'We could not find any property available at the moment in Dusseldorf'
     );
     expect(description).toBeInTheDocument();
     expect(description).toHaveClass('cities__status-description');
 
-    // Проверяем обертку статуса
     const statusWrapper = statusText.parentElement;
     expect(statusWrapper).toHaveClass('cities__status-wrapper', 'tabs__content');
 
-    // Проверяем секцию no-places
     const noPlacesSection = statusWrapper?.parentElement;
     expect(noPlacesSection).toHaveClass('cities__no-places');
   });
@@ -54,7 +48,6 @@ describe('EmptyMain Component', () => {
   test('has correct hierarchical structure', () => {
     const { container } = render(<EmptyMain />);
 
-    // Проверяем иерархию DOM
     const citiesDiv = container.querySelector('.cities');
     expect(citiesDiv).toBeInTheDocument();
 

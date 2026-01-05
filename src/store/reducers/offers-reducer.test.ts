@@ -41,14 +41,12 @@ describe('Offers Reducer', () => {
   });
 
   test('should handle setOffersDataLoadingStatus action', () => {
-    // Test setting to true
     const actionTrue = setOffersDataLoadingStatus(true);
     let result = offersReducer(initialState, actionTrue);
 
     expect(result.isOffersDataLoading).toBe(true);
     expect(result.offers).toEqual([]);
 
-    // Test setting back to false
     const actionFalse = setOffersDataLoadingStatus(false);
     result = offersReducer(result, actionFalse);
 
@@ -62,16 +60,14 @@ describe('Offers Reducer', () => {
       createMockOffer('offer-3', false),
     ];
 
-    // First load offers
     let state = offersReducer(initialState, loadOffers(testOffers));
 
-    // Update favorite status of offer-1
     const action = updateOfferFavoriteStatus({ offerId: 'offer-1', isFavorite: true });
     state = offersReducer(state, action);
 
     expect(state.offers[0].isFavorite).toBe(true);
-    expect(state.offers[1].isFavorite).toBe(true); // Was already true
-    expect(state.offers[2].isFavorite).toBe(false); // Unchanged
+    expect(state.offers[1].isFavorite).toBe(true);
+    expect(state.offers[2].isFavorite).toBe(false);
   });
 
   test('should handle updateOfferFavoriteStatus to false', () => {

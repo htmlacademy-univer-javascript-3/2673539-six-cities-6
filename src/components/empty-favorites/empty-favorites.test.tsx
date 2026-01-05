@@ -5,7 +5,6 @@ describe('EmptyFavorites Component', () => {
   test('renders empty favorites section with correct structure', () => {
     render(<EmptyFavorites />);
 
-    // Проверяем наличие основных контейнеров
     const mainElement = screen.getByRole('main');
     expect(mainElement).toHaveClass('page__main', 'page__main--favorites', 'page__main--favorites-empty');
 
@@ -27,20 +26,17 @@ describe('EmptyFavorites Component', () => {
   test('renders empty state message', () => {
     render(<EmptyFavorites />);
 
-    // Проверяем основной текст
     const statusText = screen.getByText('Nothing yet saved.');
     expect(statusText).toBeInTheDocument();
     expect(statusText).toHaveClass('favorites__status');
     expect(statusText.tagName).toBe('B');
 
-    // Проверяем описание
     const description = screen.getByText(
       'Save properties to narrow down search or plan your future trips.'
     );
     expect(description).toBeInTheDocument();
     expect(description).toHaveClass('favorites__status-description');
 
-    // Проверяем обертку
     const statusWrapper = statusText.parentElement;
     expect(statusWrapper).toHaveClass('favorites__status-wrapper');
   });
@@ -66,7 +62,6 @@ describe('EmptyFavorites Component', () => {
   test('has correct semantic structure', () => {
     const { container } = render(<EmptyFavorites />);
 
-    // Проверяем структуру DOM
     const main = container.querySelector('main');
     expect(main).toBeInTheDocument();
 

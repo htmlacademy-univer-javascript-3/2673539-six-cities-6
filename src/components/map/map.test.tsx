@@ -62,7 +62,6 @@ describe('MapComponent - Basic Tests', () => {
     );
 
     const mapContainer = container.firstChild as HTMLDivElement;
-    // Можно проверить, что элемент существует и имеет правильные стили
     expect(mapContainer).toBeDefined();
     expect(mapContainer.style.height).toBe('100%');
     expect(mapContainer.style.width).toBe('100%');
