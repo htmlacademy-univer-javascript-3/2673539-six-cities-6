@@ -68,12 +68,15 @@ export const loginAction = createAsyncThunk<void, AuthData, { dispatch: AppDispa
 export const logoutAction = createAsyncThunk<void, undefined, { dispatch: AppDispatch; state: RootState; extra: AxiosInstance }>(
   'user/logout',
   async (_arg, { dispatch, extra: api }) => {
-    // Не знаю почему, но иногда не работает этот эндпоинт, а иногда работает
-    await api.delete(APIRoute.Logout);
-    dropToken();
-    dispatch(requireAuthorization(AuthorizationStatus.NoAuth));
-    dispatch(setUserData(undefined));
-    dispatch(setFavoriteOffers([]));
+    try {
+      // Если запрос на выход не удался, все равно очищаем токен и сбрасываем состояние
+      await api.delete(APIRoute.Logout);
+    } finally {
+      dropToken();
+      dispatch(requireAuthorization(AuthorizationStatus.NoAuth));
+      dispatch(setUserData(undefined));
+      dispatch(setFavoriteOffers([]));
+    }
   }
 );
 

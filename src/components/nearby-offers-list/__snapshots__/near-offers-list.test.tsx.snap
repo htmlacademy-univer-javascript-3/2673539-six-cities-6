@@ -1,0 +1,18 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`NearOffersList Component > matches snapshot with empty offers 1`] = `
+<div>
+  <section
+    class="near-places places"
+  >
+    <h2
+      class="near-places__title"
+    >
+      Other places in the neighbourhood
+    </h2>
+    <div
+      class="near-places__list places__list"
+    />
+  </section>
+</div>
+`;

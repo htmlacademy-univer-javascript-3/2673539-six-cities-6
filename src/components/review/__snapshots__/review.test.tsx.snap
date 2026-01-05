@@ -1,0 +1,131 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Review Component > matches snapshot with high rating 1`] = `
+<div>
+  <li
+    class="reviews__item"
+  >
+    <div
+      class="reviews__user user"
+    >
+      <div
+        class="reviews__avatar-wrapper user__avatar-wrapper"
+      >
+        <img
+          alt="John Doe"
+          class="reviews__avatar user__avatar"
+          height="54"
+          src="https://example.com/avatar.jpg"
+          width="54"
+        />
+      </div>
+      <span
+        class="reviews__user-name"
+      >
+        John Doe
+      </span>
+      <span
+        class="reviews__user-status"
+      >
+        Pro
+      </span>
+    </div>
+    <div
+      class="reviews__info"
+    >
+      <div
+        class="reviews__rating rating"
+      >
+        <div
+          class="reviews__stars rating__stars"
+        >
+          <span
+            style="width: 96%;"
+          />
+          <span
+            class="visually-hidden"
+          >
+            Rating
+          </span>
+        </div>
+      </div>
+      <p
+        class="reviews__text"
+      >
+        This is a great place! Highly recommend.
+      </p>
+      <time
+        class="reviews__time"
+        datetime="2024-01-15T10:30:00.000Z"
+      >
+        January 2024
+      </time>
+    </div>
+  </li>
+</div>
+`;
+
+exports[`Review Component > matches snapshot with low rating 1`] = `
+<div>
+  <li
+    class="reviews__item"
+  >
+    <div
+      class="reviews__user user"
+    >
+      <div
+        class="reviews__avatar-wrapper user__avatar-wrapper"
+      >
+        <img
+          alt="John Doe"
+          class="reviews__avatar user__avatar"
+          height="54"
+          src="https://example.com/avatar.jpg"
+          width="54"
+        />
+      </div>
+      <span
+        class="reviews__user-name"
+      >
+        John Doe
+      </span>
+      <span
+        class="reviews__user-status"
+      >
+        Pro
+      </span>
+    </div>
+    <div
+      class="reviews__info"
+    >
+      <div
+        class="reviews__rating rating"
+      >
+        <div
+          class="reviews__stars rating__stars"
+        >
+          <span
+            style="width: 46%;"
+          />
+          <span
+            class="visually-hidden"
+          >
+            Rating
+          </span>
+        </div>
+      </div>
+      <p
+        class="reviews__text"
+      >
+        This is a great place! Highly recommend.
+      </p>
+      <time
+        class="reviews__time"
+        datetime="2024-01-15T10:30:00.000Z"
+      >
+        January 2024
+      </time>
+    </div>
+  </li>
+</div>
+`;

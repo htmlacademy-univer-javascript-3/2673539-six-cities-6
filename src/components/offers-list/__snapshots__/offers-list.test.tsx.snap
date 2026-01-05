@@ -1,0 +1,17 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`OffersList Component > matches snapshot with empty offers 1`] = `
+<div>
+  <div
+    class="cities__places-list places__list tabs__content"
+  />
+</div>
+`;
+
+exports[`OffersList Component > matches snapshot with offers for different city 1`] = `
+<div>
+  <div
+    class="cities__places-list places__list tabs__content"
+  />
+</div>
+`;

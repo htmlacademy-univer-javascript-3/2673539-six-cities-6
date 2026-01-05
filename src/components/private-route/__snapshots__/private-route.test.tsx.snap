@@ -1,0 +1,23 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`PrivateRoute Component > matches snapshot when authorized 1`] = `
+<div>
+  <div>
+    <div
+      data-testid="protected-content"
+    >
+      Protected Content
+    </div>
+  </div>
+</div>
+`;
+
+exports[`PrivateRoute Component > matches snapshot when not authorized 1`] = `
+<div>
+  <div
+    data-testid="login-page"
+  >
+    Login Page
+  </div>
+</div>
+`;
